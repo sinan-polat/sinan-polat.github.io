@@ -419,3 +419,56 @@ p{margin:0 0 1em;max-width:66ch}
 @media (hover:none){.proto-cta{opacity:1;transform:none}}
 @media (max-width:980px){.concept.proto{grid-template-columns:1fr}.concept.proto .proto-shot{order:-1}}
 .browser-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+
+/* ---------- v7: kompakt galleri, motion-sektion ---------- */
+/* Materialer fra KOMBIT: feature-casen står stadig stort, resten bliver små fliser.
+   Beskrivelse og "Min rolle" vises i stedet i vieweren, når man åbner et projekt. */
+.work.compact{grid-template-columns:repeat(5,1fr);gap:18px}
+.work.compact .card.wide{grid-column:auto}
+.work.compact .card:not(.feature) .card-media{aspect-ratio:4/3.4;padding:16px;min-height:0}
+.work.compact .card:not(.feature) .card-media img{max-height:100%}
+.work.compact .card:not(.feature) .card-body{padding:12px 14px 15px}
+.work.compact .card:not(.feature) .card-body h3{font-size:.98rem;line-height:1.25;margin:0}
+.work.compact .card:not(.feature) .card-body > :not(h3){display:none}
+.work.compact .card:not(.feature) .badge{top:8px;left:8px;font-size:.62rem;padding:3px 8px}
+.work.compact .card:not(.feature){border-radius:14px}
+@media (max-width:980px){.work.compact{grid-template-columns:1fr 1fr}}
+.viewer-desc{margin:8px 0 0;max-width:78ch;font-size:.88rem;line-height:1.5;color:#B9BDC6}
+.viewer-desc:empty{display:none}
+.viewer-desc span{display:block;margin-top:4px;color:#E4E1DB}
+.viewer-desc b{color:#FF7A50;font-weight:600}
+.viewer:has(.viewer-desc:not(:empty)) .viewer-img{max-height:calc(100vh - 270px);max-height:calc(100dvh - 270px)}
+
+/* Motion */
+.motion{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.mcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:box-shadow .45s var(--ease),border-color .3s}
+.mcard:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.mcard figure{margin:0}
+.mfeature{grid-column:1/-1;display:grid;grid-template-columns:1.25fr 1fr}
+.mmedia{position:relative;background:var(--stage)}
+.mmedia.hika{display:flex;gap:clamp(14px,2.4vw,28px);justify-content:center;align-items:center;padding:clamp(22px,3.4vw,40px) clamp(16px,3vw,34px)}
+.mmedia .phone{position:relative;width:min(42%,250px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 2px 6px rgba(0,0,0,.12),0 26px 50px -20px rgba(0,0,0,.45);border:5px solid #15171C}
+.mmedia .phone video{width:100%;height:100%;object-fit:cover;display:block}
+.mmedia .print{width:min(40%,240px);aspect-ratio:2/3;transform:rotate(2.5deg);box-shadow:0 2px 6px rgba(0,0,0,.1),0 22px 40px -18px rgba(0,0,0,.4);transition:transform .6s var(--ease)}
+.mmedia .print img{width:100%;height:100%;object-fit:cover;display:block;border-radius:3px}
+.mfeature:hover .print{transform:rotate(1deg) translateY(-6px)}
+.mmedia.wide16{aspect-ratio:16/9;background:#101114}
+.mmedia.wide16 video{width:100%;height:100%;object-fit:cover;display:block}
+.mbody{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.mfeature .mbody{padding:30px 32px 32px;justify-content:center}
+.mbody h3{margin-bottom:8px}
+.mfeature .mbody h3{font-size:1.55rem;line-height:1.15}
+.mbody p{color:var(--muted);font-size:.95rem;margin-bottom:.7em}
+.mbody .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border-left:3px solid var(--accent);background:var(--tint);border-radius:0 8px 8px 0}
+.mbody .role b{color:var(--accent);font-weight:600}
+.mbody .made{margin:auto 0 0;padding-top:6px;display:flex;align-items:center;gap:8px;font:500 .74rem var(--mono);letter-spacing:.02em;color:var(--muted)}
+.mbody .made::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.msound{position:absolute;right:12px;bottom:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;background:rgba(16,17,20,.62);color:#F5F2EC;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,transform .3s var(--ease)}
+.msound:hover{background:var(--accent);transform:scale(1.06)}
+.msound svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.msound .spk{fill:currentColor;stroke:none}
+.msound .on{display:none}
+.msound[aria-pressed="true"] .on{display:block}
+.msound[aria-pressed="true"] .off{display:none}
+@media (max-width:980px){.mfeature{grid-template-columns:1fr}}
+@media (max-width:760px){.motion{grid-template-columns:1fr}}

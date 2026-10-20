@@ -54,3 +54,31 @@
   .brand .dot{transition:none}
   .typing i{animation:none}
 }
+
+/* ---------- 5. Kolofon: samtalen med Claude (i den mørke kontakt-sektion) ---------- */
+.colophon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center;margin:0 0 48px;padding:clamp(22px,3vw,32px);border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(255,255,255,.03)}
+.colophon .colo-label{font:500 .8rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#FF7A50;margin:0 0 12px}
+.colophon .colo-text p{margin:0 0 .8em}
+.colophon .colo-text b{color:#F5F2EC;font-weight:600}
+.colophon .colo-hint{font:500 .74rem var(--mono);color:#8A8F99;margin:0}
+.colo-chat{display:flex;flex-direction:column;gap:14px;cursor:pointer;min-height:190px;justify-content:center}
+.cmsg{display:flex;flex-direction:column;gap:5px;max-width:90%;transition:opacity .35s,transform .45s var(--ease)}
+.cmsg.me{align-self:flex-end;align-items:flex-end}
+.cmsg.ai{align-items:flex-start}
+.cmsg .who{font:500 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#8A8F99}
+.colophon .cbody{margin:0;padding:12px 16px;border-radius:18px;font-size:1rem;line-height:1.5;max-width:none}
+.colophon .cmsg.me .cbody{background:#F5F2EC;color:#15171C;border-bottom-right-radius:6px}
+.colophon .cmsg.ai .cbody{background:#262930;color:#ECE9E3;border-bottom-left-radius:6px}
+.colo-chat.armed .cmsg:not(.show){opacity:0;transform:translateY(10px)}
+.cdot{display:inline-block;position:relative;width:20px;height:20px;margin:0 -6px -7px -4px;vertical-align:baseline;border-radius:50%;background:#FF7A50;
+  --s:.4;--tx:0px;transform:translateX(var(--tx)) scale(var(--s));transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.cdot .eye{opacity:0;transition:opacity .18s,transform .12s ease-out}
+.colo-chat.armed .cdot:not(.pop){--s:0}
+.cdot.awake{--s:1.15;--tx:9px}
+.cdot.awake .eye{opacity:1}
+.ctyping{display:inline-flex;gap:5px;align-items:flex-end;height:16px;vertical-align:middle}
+.ctyping i{width:7px;height:7px;border-radius:50%;background:#FF7A50;animation:prik-hop 1.05s infinite cubic-bezier(.3,.6,.4,1);transform-origin:50% 100%}
+.ctyping i:nth-child(2){animation-delay:.14s}
+.ctyping i:nth-child(3){animation-delay:.28s}
+@media (max-width:760px){.colophon{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.cdot{transition:none}.ctyping i{animation:none}}

@@ -303,6 +303,13 @@
     vPages = svg ? [svg] : Array.from({ length: n }, (_, i) => `work/${slug}/${i + 1}.jpg`);
     const title = card.dataset.title || $('h3', card).textContent;
     $('.viewer-title').textContent = title;
+    // beskrivelse og "Min rolle" fra kortet (i det kompakte galleri står de ikke på selve kortet)
+    const body = $('.card-body', card), vDesc = $('.viewer-desc');
+    if (vDesc) {
+      const intro = body && $$(':scope > p', body).find(p => !p.matches('.kicker, .role, .card-actions, .more'));
+      const role = body && $('.role', body);
+      vDesc.innerHTML = (intro ? intro.textContent : '') + (role ? `<span>${role.innerHTML}</span>` : '');
+    }
     vImg.alt = card.dataset.title || $('img', card).alt;
     const file = pdf || svg || vPages[0];
     vOpen.href = file; vDown.href = file;
@@ -352,6 +359,34 @@
     touchX = null;
   });
 
+  /* ---------- Motion: korte videoer spiller, når de er i billedet ---------- */
+  const mvids = $$('.mvid');
+  const setSound = (btn, on) => { btn.setAttribute('aria-pressed', on); btn.setAttribute('aria-label', on ? 'Slå lyd fra' : 'Slå lyd til'); };
+  // kun én video ad gangen må have lyd
+  const quietOthers = keep => mvids.forEach(v => {
+    if (v === keep) return;
+    if (v.hasAttribute('data-autoplay')) { v.muted = true; const b = v.parentElement.querySelector('.msound'); if (b) setSound(b, false); }
+    else if (!v.paused) v.pause();
+  });
+  // reducer bevægelse: ingen autoplay, i stedet almindelige kontroller
+  if (reduceMotion) mvids.forEach(v => {
+    if (!v.hasAttribute('data-autoplay')) return;
+    v.removeAttribute('data-autoplay'); v.controls = true; v.muted = false;
+    const btn = v.parentElement.querySelector('.msound'); if (btn) btn.remove();
+  });
+  const autoVids = mvids.filter(v => v.hasAttribute('data-autoplay'));
+  if (autoVids.length) {
+    const vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause(); }), { threshold: 0.35 });
+    autoVids.forEach(v => vio.observe(v));
+  }
+  $$('.msound').forEach(btn => btn.addEventListener('click', () => {
+    const v = btn.parentElement.querySelector('video'), on = v.muted;
+    if (on) { quietOthers(v); v.currentTime = 0; }
+    v.muted = !on; setSound(btn, on);
+    v.play().catch(() => {});
+  }));
+  mvids.forEach(v => v.addEventListener('play', () => { if (!v.muted) quietOthers(v); }));
+
   /* ---------- Kopiér e-mail ---------- */
   const toast = $('.toast');
   const showToast = msg => { toast.textContent = msg; toast.classList.add('show'); clearTimeout(showToast.t); showToast.t = setTimeout(() => toast.classList.remove('show'), 2200); };
@@ -367,7 +402,8 @@
     { q: 'Hvad søger du?', a: 'En rolle inden for UX og brugerresearch, gerne hvor komplekst indhold eller data skal gøres brugbart for rigtige mennesker. Det offentlige og B2B-tunge domæner er mit hjemmebane.' },
     { q: 'Hvad handler dit bachelorprojekt om?', a: 'Valg.dk som dataformidlingsplatform. Jeg undersøger, hvordan borgere, journalister, analytikere og kommunale medarbejdere finder data, og designer en ny informationsstruktur med indgange efter brugergruppe. <a href="#bachelor">Se det her</a>.' },
     { q: 'Hvad lavede du i praktikken?', a: 'Jeg lavede en WSJF-præsentation, der blev brugt i workshops med produktejere, en skabelon til brugerevents i konceptet Brugerfokus og på eget initiativ en Figma-prototype til indsamling og prioritering af brugerfeedback. <a href="#arbejde">Se prototypen her</a>.' },
-    { q: 'Hvilke værktøjer bruger du?', a: 'Figma til wireframes og prototyper, InDesign og Illustrator til tryk og layout, og HTML, CSS og JavaScript til web. Denne side er håndkodet.' },
+    { q: 'Hvilke værktøjer bruger du?', a: 'Figma til wireframes og prototyper, InDesign og Illustrator til tryk og layout, og HTML, CSS og JavaScript til web.' },
+    { q: 'Har du selv kodet siden?', a: 'Ikke alene 😄 Indhold, design og idéer er mine, men koden er skrevet sammen med Claude, en AI-assistent. Prikken i logoet fik også øjne på den måde. <a href="#kontakt">Se samtalen nederst på siden</a>.' },
     { q: 'Kan jeg se dit CV?', a: 'Selvfølgelig! <a href="pdf/CV-Sinan-Polat.pdf" target="_blank" rel="noopener">Åbn mit CV her</a> eller <a href="pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf">download det som PDF</a>.' },
     { q: 'Hvordan kontakter jeg dig?', a: 'Skriv til <a href="mailto:sinanp2020@hotmail.com">sinanp2020@hotmail.com</a> eller ring på <a href="tel:+4550584245">5058 4245</a>. Jeg svarer hurtigt 😊' }
   ];
@@ -406,5 +442,5 @@
 
   /* ---------- Hilsen til nysgerrige udviklere ---------- */
   console.log('%cHej udvikler 👋', 'font:600 20px Georgia;color:#E9532B');
-  console.log('Denne side er håndkodet af Sinan Polat i HTML, CSS og vanilla JavaScript.\nSkriv til sinanp2020@hotmail.com');
+  console.log('Denne side er lavet af Sinan Polat i HTML, CSS og vanilla JavaScript, kodet sammen med Claude.\nSkriv til sinanp2020@hotmail.com');
 })();
