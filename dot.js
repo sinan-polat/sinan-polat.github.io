@@ -210,6 +210,8 @@
     if (!reduce) {
       new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { play(); obs.disconnect(); } }, { threshold: .4 }).observe(chat);
       chat.addEventListener('click', play);
+      const replay = $('.colo-replay');
+      if (replay) replay.addEventListener('click', play);
     }
   }
 

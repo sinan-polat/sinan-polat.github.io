@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=8">
-<link rel="stylesheet" href="dot.css?v=3">
+<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="dot.css?v=4">
 <script>
   /* Sæt tema før siden tegnes, så den ikke blinker */
   (function(){try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
@@ -29,10 +29,10 @@
 <header class="site-header">
   <a class="brand" href="#top" aria-label="Sinan Polat – til toppen">Sinan Polat<span class="dot"></span></a>
   <nav class="nav" id="nav" aria-label="Hovedmenu">
-    <a href="#om">Om mig</a>
-    <a href="#bachelor">Bachelor</a>
-    <a href="#motion">Motion</a>
+    <a href="#cases">Cases</a>
     <a href="#arbejde">Arbejde</a>
+    <a href="#motion">Motion</a>
+    <a href="#om">Om mig</a>
     <a href="#uddannelse">Uddannelse</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
@@ -58,7 +58,7 @@
         <h1 class="reveal">Jeg gør komplekse <span class="rotator" aria-live="polite"><span class="rotator-word">offentlige data</span></span> lette at finde og forstå.</h1>
         <p class="lead reveal">Hej, jeg hedder Sinan 👋 Jeg er uddannet multimediedesigner og arbejder dér, hvor <strong>brugerresearch</strong>, <strong>informationsarkitektur</strong> og <strong>visuel formidling</strong> mødes. Den 18. december 2026 afleverer jeg min professionsbachelor i Digital Konceptudvikling.</p>
         <p class="actions reveal">
-          <a class="button magnetic" href="#arbejde">Se mit arbejde <span aria-hidden="true">→</span></a>
+          <a class="button magnetic" href="#cases">Se mine cases <span aria-hidden="true">→</span></a>
           <button class="button ghost magnetic" type="button" data-viewer data-slug="cv" data-pages="2" data-pdf="pdf/CV-Sinan-Polat.pdf" data-title="CV – Sinan Polat">Se mit CV</button>
         </p>
       </div>
@@ -73,7 +73,7 @@
         <svg class="scribble" viewBox="0 0 120 60" aria-hidden="true"><path d="M5 40c20-30 40-30 50-5s30 20 55-20"/><path d="M100 10l12 5-7 11"/></svg>
       </div>
     </div>
-    <a class="scroll-hint" href="#om" aria-label="Scroll ned"><span></span></a>
+    <a class="scroll-hint" href="#cases" aria-label="Scroll ned"><span></span></a>
   </section>
 
   <!-- ============ MARQUEE ============ -->
@@ -83,55 +83,29 @@
     </div>
   </div>
 
-  <!-- ============ OM MIG ============ -->
-  <section id="om" class="section about">
-    <div class="about-photo reveal">
-      <img src="img/sinan-arbejde.jpg" alt="Sinan Polat ved sin arbejdsplads" loading="lazy" width="1600" height="1200">
-      <span class="photo-tag">På kontoret hos KOMBIT</span>
-    </div>
-    <div class="about-text">
-      <p class="eyebrow reveal">01 — Om mig</p>
-      <h2 class="reveal">Fra fagtungt indhold til noget, folk <em>faktisk</em> kan bruge.</h2>
-      <p class="reveal">Siden april 2024 har jeg været studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling. Her har jeg arbejdet tæt på de fælleskommunale it-løsninger FLIS, DUBU, KY og Bibliotekernes Data og It og lavet indhold til hjemmeside, nyhedsbreve, LinkedIn, Digitaliseringsmessen og podcasten Den Grønne Kode. Målgruppen er ledere, sagsbehandlere og specialister i 98 kommuner, og indholdet er ofte tungt: lovgivning, data og systemer.</p>
-      <p class="reveal">Min opgave har været at <strong>oversætte</strong>. Først forstår jeg, hvem der skal bruge materialet og hvorfor. Så strukturerer jeg indholdet, og til sidst gør jeg det visuelt. Det er den samme tankegang, jeg bruger i UX-arbejdet.</p>
-      <ul class="principles reveal">
-        <li><span>01</span>Brugeren før løsningen</li>
-        <li><span>02</span>Struktur før stil</li>
-        <li><span>03</span>Data skal kunne læses på 5 sekunder</li>
-      </ul>
-    </div>
-    <div class="stats">
-      <div class="stat reveal"><strong data-count="98">0</strong><span>kommuner som målgruppe</span></div>
-      <div class="stat reveal"><strong data-count="113">0</strong><span>sider, slides og skærme i portfolien</span></div>
-      <div class="stat reveal"><strong data-count="14">0</strong><span>projekter vist her</span></div>
-      <div class="stat reveal"><strong data-count="4">0</strong><span>faser i bachelorprojektet</span></div>
-    </div>
-  </section>
 
-  <!-- ============ BACHELOR ============ -->
-  <section id="bachelor" class="section bachelor">
+  <!-- ============ CASES ============ -->
+  <section id="cases" class="section cases">
     <div class="section-head">
-      <p class="eyebrow reveal">02 — Bachelorprojekt</p>
-      <h2 class="reveal">Valg.dk som dataformidlingsplatform</h2>
-      <p class="lead small reveal">Hvordan kan Valg.dk understøtte borgere, journalister, analytikere og kommunale medarbejdere gennem informationsarkitektur og præsentation af data? Projektet undersøger, hvor brugerne møder friktion, og udvikler en prototype af en ny informationsstruktur.</p>
+      <p class="eyebrow reveal">01 — Udvalgte cases</p>
+      <h2 class="reveal">Tre cases, fra research til noget, man kan klikke på</h2>
+      <p class="lead small reveal">Et bachelorprojekt, en hjemmeside til en kunde og en prototype fra min praktik. Alle tre kan prøves direkte.</p>
     </div>
 
     <div class="concept proto reveal">
       <div class="concept-side">
-        <p class="kicker">Webprototype · Figma-design kodet med Claude</p>
+        <p class="kicker">Bachelorprojekt · Webprototype</p>
         <h3 class="proto-title">Et nyt Valg.dk, bygget op om brugernes spørgsmål</h3>
-        <p class="proto-text">Forsiden starter med det, brugerne kommer for: at finde resultatet for deres kommune, sammenligne områder og hente data. Resultaterne vises på et interaktivt kort, og man kan skifte mellem valgdeltagelse og største parti.</p>
+        <p class="proto-text">Fire brugergrupper deler i dag én indgang til Valg.dk. Min prototype starter med det, de kommer for: at finde resultatet for deres kommune, sammenligne områder og hente data, med resultaterne på et interaktivt kort.</p>
         <dl class="facts">
-          <div><dt>Samarbejde</dt><dd>KOMBIT</dd></div>
           <div><dt>Min rolle</dt><dd>UX research, informationsarkitektur og Figma-prototype</dd></div>
           <div><dt>Kode</dt><dd>Claude (AI) ud fra mit Figma-design</dd></div>
-          <div><dt>Brugertest</dt><dd>11. november 2026</dd></div>
-          <div><dt>Afleveres</dt><dd>18. december 2026</dd></div>
+          <div><dt>Status</dt><dd>Brugertest 11. nov. · afleveres 18. dec. 2026</dd></div>
         </dl>
         <p class="card-actions">
           <a class="button small" href="https://sinan-polat.github.io/valg.dk/" target="_blank" rel="noopener">Prøv prototypen ↗</a>
         </p>
-        <p class="mock-note">Prototype til bachelorprojektet, ikke det officielle Valg.dk. Alle tal er eksempeldata.</p>
+        <p class="mock-note">I samarbejde med KOMBIT. Prototype, ikke det officielle Valg.dk. Alle tal er eksempeldata.</p>
       </div>
 
       <a class="browser proto-shot" href="https://sinan-polat.github.io/valg.dk/" target="_blank" rel="noopener" aria-label="Åbn Valg.dk-prototypen i en ny fane">
@@ -143,77 +117,49 @@
       </a>
     </div>
 
-    <ol class="proto-steps">
-      <li class="reveal"><span class="ps-num">01</span><b>Research</b><p>Interviews og observationer med brugere af Valg.dk: Hvem bruger siden, hvad leder de efter, og hvor går de i stå?</p></li>
-      <li class="reveal"><span class="ps-num">02</span><b>Indsigt</b><p>Dataene findes, men strukturen følger valgets afvikling og ikke brugernes spørgsmål. Fire brugergrupper deler én indgang.</p></li>
-      <li class="reveal"><span class="ps-num">03</span><b>Figma-prototype</b><p>En ny informationsstruktur med indgange efter brugergruppe, designet som wireframes og klikbar prototype i Figma.</p></li>
-      <li class="reveal ai"><span class="ps-num">04</span><b>Kodet prototype</b><p>Figma-designet er omsat til en fungerende webprototype sammen med Claude, så den kan testes med kort, data og rigtig interaktion.</p></li>
+    <p class="steps-label reveal">Sådan blev Valg.dk-prototypen til</p>
+    <ol class="proto-steps" aria-label="Processen bag Valg.dk-prototypen">
+      <li class="reveal"><span class="ps-num">01</span><b>Research</b><p>Interviews og observationer: hvem bruger siden, og hvor går de i stå?</p></li>
+      <li class="reveal"><span class="ps-num">02</span><b>Indsigt</b><p>Strukturen følger valgets afvikling, ikke brugernes spørgsmål.</p></li>
+      <li class="reveal"><span class="ps-num">03</span><b>Figma-prototype</b><p>Indgange efter brugergruppe, som wireframes og klikbar prototype.</p></li>
+      <li class="reveal ai"><span class="ps-num">04</span><b>Kodet prototype</b><p>Omsat til en webprototype med Claude, så den kan testes med rigtige data.</p></li>
     </ol>
-    <p class="note reveal">Teori og metode: Garrett (The Elements of User Experience), Den Dekker (design thinking), Yablonski (Laws of UX) og Houde &amp; Hill (What do prototypes prototype?).</p>
-  </section>
+    <p class="note small-note reveal">Teori og metode: Garrett (The Elements of User Experience), Den Dekker (design thinking), Yablonski (Laws of UX) og Houde &amp; Hill (What do prototypes prototype?).</p>
 
-  <!-- ============ MOTION ============ -->
-  <section id="motion" class="section motion-section">
-    <div class="section-head">
-      <p class="eyebrow reveal">03 — Motion</p>
-      <h2 class="reveal">Ting, der bevæger sig</h2>
-      <p class="lead small reveal">Motion graphics og animation. Videoerne kører uden lyd. Tryk på højttaleren for at høre dem.</p>
-    </div>
-
-    <div class="motion">
-      <article class="mcard mfeature reveal">
-        <div class="mmedia hika">
-          <figure class="phone">
-            <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/hikayahuset-poster.jpg" aria-label="Intro til Hikayahuset: dronen stiger op over huset i solnedgang, og titlen lægger sig bag horisonten">
-              <source src="MP4/hikayahuset-web.mp4" type="video/mp4">
-            </video>
-            <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
-            </button>
-          </figure>
-          <figure class="print">
-            <img src="img/hikayahuset-plakat-web.jpg" alt="Plakat for Hikayahuset: titlen ligger bag horisonten over et luftfoto af huset og markerne" loading="lazy" width="900" height="1350">
-          </figure>
-        </div>
-        <div class="mbody">
-          <p class="kicker">Motion graphic · Plakat</p>
-          <h3>Hikayahuset: en fortælling</h3>
-          <p>Intro til opholdsstedet Hikayahuset. Dronen stiger op over huset i solnedgang, og titlen glider ind og lægger sig bag horisonten, så typografien bliver en del af landskabet. Plakaten bruger samme greb.</p>
-          <p class="role"><b>Min rolle:</b> Motion design, typografi og plakat.</p>
-          <ul class="tags"><li>Motion design</li><li>Typografi</li><li>Plakat</li><li>9:16</li></ul>
+    <div class="case-grid">
+      <article class="case lyng reveal">
+        <a class="case-media" href="https://sinan-polat.github.io/lyng-ventilation/" target="_blank" rel="noopener" aria-label="Åbn hjemmesiden for Lyng Ventilation i en ny fane">
+          <span class="mini-bar"><i></i><i></i><i></i><span>sinan-polat.github.io/<b>lyng-ventilation</b></span></span>
+          <img src="work/lyng-ventilation/forside.jpg" alt="Forsiden af Lyng Ventilations hjemmeside: overskriften Frisk luft ind. Varmen bliver. og et animeret snit af et hus med ventilationsanlæg" loading="lazy" width="1400" height="875">
+          <span class="badge">Hjemmeside</span>
+          <span class="proto-cta">Besøg siden ↗</span>
+        </a>
+        <div class="card-body">
+          <p class="kicker">Hjemmeside · Kundeprojekt</p>
+          <h3>Lyng Ventilation: et teknisk produkt, forklaret enkelt</h3>
+          <p>Ny hjemmeside til et ventilationsfirma i Greve. Et animeret snit af huset viser, hvordan anlægget virker, et indeklima-tjek lader de besøgende krydse deres egne problemer af, og AI-chatbotten "Spørg Lyng" er bygget til at svare på kundernes spørgsmål.</p>
+          <p class="role"><b>Min rolle:</b> Koncept, UX, design og kode, sammen med Claude. Leveret med designsystem og brandmanual.</p>
+          <p class="card-actions">
+            <a class="button small" href="https://sinan-polat.github.io/lyng-ventilation/" target="_blank" rel="noopener">Besøg siden ↗</a>
+          </p>
+          <p class="mock-note">Under udvikling: billeder og kundeudtalelser kommer, når firmaet leverer dem.</p>
         </div>
       </article>
-
-      <article class="mcard reveal">
-        <figure class="mmedia wide16">
-          <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/sinan-polat-logo-story-poster.jpg" aria-label="Logoanimation: prikken i Sinan Polat vågner, retter det skæve l op og bliver til logoet igen">
-            <source src="MP4/sinan-polat-logo-story.webm" type="video/webm">
-            <source src="MP4/sinan-polat-logo-story.mp4" type="video/mp4">
-          </video>
-          <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
-          </button>
-        </figure>
-        <div class="mbody">
-          <p class="kicker">Logoanimation · 7 sek.</p>
-          <h3>Prikken retter l'et op</h3>
-          <p>Punktummet i mit logo vågner, opdager at l'et står skævt, skubber det på plads og bliver til et almindeligt punktum igen.</p>
-          <p class="made">Lavet med Claude ud fra mit logo</p>
-        </div>
-      </article>
-
-      <article class="mcard reveal">
-        <figure class="mmedia wide16">
-          <video class="mvid" controls playsinline preload="none" poster="MP4/sinan-polat-punktum-poster.jpg" aria-label="Animeret fortælling: prikken fra logoet rejser gennem Double Diamond-processen">
-            <source src="MP4/sinan-polat-punktum.webm" type="video/webm">
-            <source src="MP4/sinan-polat-punktum.mp4" type="video/mp4">
-          </video>
-        </figure>
-        <div class="mbody">
-          <p class="kicker">Animeret fortælling · 56 sek.</p>
-          <h3>Hvor andre sætter punktum</h3>
-          <p>Prikken rejser gennem Double Diamond: fra brugerinterviews og post-its over prototyper og plakater til en løsning, hvor svaret findes på under fem sekunder.</p>
-          <p class="made">Lavet med Claude ud fra mit logo og mine tre principper</p>
+      <article class="card case reveal" data-slug="feedback-prototype" data-pages="13" data-link="https://side-reduce-35089351.figma.site/" data-link-label="Prøv prototypen ↗">
+        <button class="card-media case-media" type="button" aria-label="Se skærmbilleder af Feedback Flow-prototypen">
+          <span class="mini-bar"><i></i><i></i><i></i><span>Feedback Flow · Figma</span></span>
+          <img src="work/feedback-prototype/thumb.jpg" alt="Internt dashboard med tematiseret brugerfeedback og prioriteringsscore" loading="lazy">
+          <span class="badge">13 skærme</span>
+        </button>
+        <div class="card-body">
+          <p class="kicker">UX-case · Praktik hos KOMBIT</p>
+          <h3>Feedback Flow: fra spredte henvendelser til prioriteret indsigt</h3>
+          <p>Brugerfeedback blev samlet i Excel-ark og mails. På eget initiativ designede jeg et borgerflow og et internt dashboard, der samler feedback i temaer og prioriterer efter antal brugere, kritikalitet og udvikling over tid.</p>
+          <p class="role"><b>Min rolle:</b> Problemafdækning, brugerflow, informationsarkitektur og UI-design i Figma.</p>
+          <p class="card-actions">
+            <a class="button small" href="https://side-reduce-35089351.figma.site/" target="_blank" rel="noopener">Prøv prototypen ↗</a>
+            <button class="button ghost small" type="button" data-open-card>Se skærmbilleder</button>
+          </p>
         </div>
       </article>
     </div>
@@ -223,9 +169,9 @@
   <section id="arbejde" class="section work-section">
     <div class="section-head row">
       <div>
-        <p class="eyebrow reveal">04 — Udvalgt arbejde</p>
+        <p class="eyebrow reveal">02 — Materialer</p>
         <h2 class="reveal">Materialer fra KOMBIT</h2>
-        <p class="lead small reveal">En interaktiv prototype samt plakater, datablade, foldere, rapporter og præsentationer. Klik på et projekt for at bladre i siderne, læse om min rolle og åbne den originale PDF.</p>
+        <p class="lead small reveal">Plakater, datablade, rapporter og præsentationer. Klik på et projekt for at bladre i siderne og læse om min rolle.</p>
       </div>
       <div class="filters reveal" role="group" aria-label="Filtrer projekter">
         <button class="on" data-filter="alle" aria-pressed="true">Alle</button>
@@ -238,29 +184,6 @@
     </div>
 
     <div class="work compact" id="work">
-      <article class="card feature" data-cat="featured" data-slug="feedback-prototype" data-pages="13" data-link="https://side-reduce-35089351.figma.site/" data-link-label="Prøv prototypen ↗">
-        <button class="card-media browser-media" type="button" aria-label="Se skærmbilleder af Feedback Flow-prototypen">
-          <span class="mini-bar"><i></i><i></i><i></i><span>Feedback Flow Prototype</span></span>
-          <img src="work/feedback-prototype/thumb.jpg" alt="Internt dashboard med tematiseret brugerfeedback og prioriteringsscore" loading="lazy">
-          <span class="badge">Figma · 13 skærme</span>
-        </button>
-        <div class="card-body">
-          <p class="kicker">UX-case · Praktik hos KOMBIT</p>
-          <h3>Feedback Flow: fra spredte henvendelser til prioriteret indsigt</h3>
-          <p>I praktikken så jeg, at brugerfeedback til KOMBITs løsninger ofte blev samlet i Excel-ark og spredt over mails og andre kanaler. Uden et samlet system var det svært for borgerne at give feedback og for medarbejderne at få overblik.</p>
-          <p>Derfor byggede jeg på eget initiativ en interaktiv Figma-prototype med to sammenkoblede visninger:</p>
-          <ul class="checks">
-            <li><b>Borgervendt flow:</b> brugeren guides gennem et struktureret spørgeforløb og ser først, om problemet allerede er meldt, så input samles i temaer i stedet for enkeltsager.</li>
-            <li><b>Internt dashboard:</b> feedback tematiseres og sorteres efter en prioriteringsscore baseret på antal brugere, kritikalitet og udvikling over tid.</li>
-          </ul>
-          <p class="role"><b>Min rolle:</b> Problemafdækning, brugerflow, informationsarkitektur og UI-design i Figma. Anvendt teori: Garrett (strategy og surface) og Houde &amp; Hill.</p>
-          <p class="card-actions">
-            <a class="button small" href="https://side-reduce-35089351.figma.site/" target="_blank" rel="noopener">Prøv prototypen ↗</a>
-            <button class="button ghost small" type="button" data-open-card>Se skærmbilleder</button>
-          </p>
-          <ul class="tags"><li>Figma</li><li>Brugerflow</li><li>Dashboard</li><li>Prioritering</li><li>Nudging</li></ul>
-        </div>
-      </article>
       <article class="card" data-cat="data tryk" data-slug="danmarkskort-a1" data-pages="1" data-pdf="pdf/danmarkskort-a1.pdf">
         <button class="card-media" type="button" aria-label="Åbn Kommuner og regioner i Danmark">
           <img src="work/danmarkskort-a1/thumb.jpg" alt="A1-plakat med kort over Danmarks kommuner og regioner" loading="lazy">
@@ -384,6 +307,109 @@
     </div>
   </section>
 
+  <!-- ============ MOTION ============ -->
+  <section id="motion" class="section motion-section">
+    <div class="section-head">
+      <p class="eyebrow reveal">03 — Motion</p>
+      <h2 class="reveal">Ting, der bevæger sig</h2>
+      <p class="lead small reveal">Videoerne kører uden lyd. Tryk på højttaleren for at høre dem.</p>
+    </div>
+
+    <div class="motion compact-motion">
+      <article class="mcard mfeature reveal">
+        <div class="mmedia hika">
+          <figure class="phone">
+            <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/hikayahuset-poster.jpg" aria-label="Intro til Hikayahuset: dronen stiger op over huset i solnedgang, og titlen lægger sig bag horisonten">
+              <source src="MP4/hikayahuset-web.mp4" type="video/mp4">
+            </video>
+            <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+            </button>
+          </figure>
+          <figure class="print">
+            <img src="img/hikayahuset-plakat-web.jpg" alt="Plakat for Hikayahuset: titlen ligger bag horisonten over et luftfoto af huset og markerne" loading="lazy" width="900" height="1350">
+          </figure>
+        </div>
+        <div class="mbody">
+          <p class="kicker">Motion graphic · Plakat</p>
+          <h3>Hikayahuset: en fortælling</h3>
+          <p>Intro til opholdsstedet Hikayahuset. Dronen stiger op over huset i solnedgang, og titlen glider ind og lægger sig bag horisonten, så typografien bliver en del af landskabet. Plakaten bruger samme greb.</p>
+          <p class="role"><b>Min rolle:</b> Motion design, typografi og plakat.</p>
+          <ul class="tags"><li>Motion design</li><li>Typografi</li><li>Plakat</li><li>9:16</li></ul>
+        </div>
+      </article>
+
+      <article class="mcard reveal">
+        <figure class="mmedia wide16">
+          <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/sinan-polat-logo-story-poster.jpg" aria-label="Logoanimation: prikken i Sinan Polat vågner, retter det skæve l op og bliver til logoet igen">
+            <source src="MP4/sinan-polat-logo-story.webm" type="video/webm">
+            <source src="MP4/sinan-polat-logo-story.mp4" type="video/mp4">
+          </video>
+          <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+          </button>
+        </figure>
+        <div class="mbody">
+          <p class="kicker">Logoanimation · 7 sek.</p>
+          <h3>Prikken retter l'et op</h3>
+          <p>Punktummet i mit logo vågner, opdager at l'et står skævt, skubber det på plads og bliver til et almindeligt punktum igen.</p>
+          <p class="made">Lavet med Claude ud fra mit logo</p>
+        </div>
+      </article>
+
+      <article class="mcard reveal">
+        <figure class="mmedia wide16">
+          <video class="mvid" controls playsinline preload="none" poster="MP4/sinan-polat-punktum-poster.jpg" aria-label="Animeret fortælling: prikken fra logoet rejser gennem Double Diamond-processen">
+            <source src="MP4/sinan-polat-punktum.webm" type="video/webm">
+            <source src="MP4/sinan-polat-punktum.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <div class="mbody">
+          <p class="kicker">Animeret fortælling · 56 sek.</p>
+          <h3>Hvor andre sætter punktum</h3>
+          <p>Prikken rejser gennem Double Diamond: fra brugerinterviews og post-its over prototyper og plakater til en løsning, hvor svaret findes på under fem sekunder.</p>
+          <p class="made">Lavet med Claude ud fra mit logo og mine tre principper</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ OM MIG ============ -->
+  <section id="om" class="section about">
+    <div class="about-photo reveal">
+      <img src="img/sinan-arbejde.jpg" alt="Sinan Polat ved sin arbejdsplads" loading="lazy" width="1600" height="1200">
+      <span class="photo-tag">På kontoret hos KOMBIT</span>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow reveal">04 — Om mig</p>
+      <h2 class="reveal">Fra fagtungt indhold til noget, folk <em>faktisk</em> kan bruge.</h2>
+      <p class="reveal">Siden april 2024 har jeg været studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling. Her har jeg arbejdet tæt på de fælleskommunale it-løsninger FLIS, DUBU, KY og Bibliotekernes Data og It og lavet indhold til hjemmeside, nyhedsbreve, LinkedIn, Digitaliseringsmessen og podcasten Den Grønne Kode. Målgruppen er ledere, sagsbehandlere og specialister i 98 kommuner, og indholdet er ofte tungt: lovgivning, data og systemer.</p>
+      <p class="reveal">Min opgave har været at <strong>oversætte</strong>. Først forstår jeg, hvem der skal bruge materialet og hvorfor. Så strukturerer jeg indholdet, og til sidst gør jeg det visuelt. Det er den samme tankegang, jeg bruger i UX-arbejdet.</p>
+      <ul class="principles reveal">
+        <li><span>01</span>Brugeren før løsningen</li>
+        <li><span>02</span>Struktur før stil</li>
+        <li><span>03</span>Data skal kunne læses på 5 sekunder</li>
+      </ul>
+    </div>
+    <div class="skills in-about" aria-label="Det jeg arbejder med">
+      <div class="skill reveal">
+        <span class="skill-ico" aria-hidden="true">◎</span>
+        <h3>Research og test</h3>
+        <p>Semistrukturerede interviews, observationer, usability-tests (tænke højt), personas, brugerrejser, affinity-diagrammer, participatory design, Design Sprint og prioritering med WSJF.</p>
+      </div>
+      <div class="skill reveal">
+        <span class="skill-ico" aria-hidden="true">◇</span>
+        <h3>Design og prototyping</h3>
+        <p>Figma (wireframes, mockups, klikbare prototyper og dashboards), informationsarkitektur, brugerflows, sitemaps, InDesign, Illustrator, Photoshop og Premiere Pro.</p>
+      </div>
+      <div class="skill reveal">
+        <span class="skill-ico" aria-hidden="true">&lt;/&gt;</span>
+        <h3>Web og data</h3>
+        <p>HTML, CSS og JavaScript (denne side er kodet sammen med Claude), Umbraco, GoPublic, Siteimprove og webtilgængelighed (WCAG).</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ UDDANNELSE ============ -->
   <section id="uddannelse" class="section edu">
     <div class="section-head">
@@ -399,7 +425,7 @@
         <li><span class="when">2021 – 2023</span><b>Uddannelsesvidenskab</b><span>Aarhus Universitet · Ikke afsluttet. Uddannelsesdata, pædagogik og læringsteori.</span></li>
         <li><span class="when">2017 – 2020</span><b>STX</b><span>Rungsted Gymnasium · Samfundsfag A og matematik B.</span></li>
       </ol>
-      <div class="school">
+      <div class="school compact-school">
         <article class="card school-card" data-slug="synopsis-nudging" data-pages="15" data-pdf="pdf/synopsis-nudging-fremlaeggelse.pdf">
           <button class="card-media" type="button" aria-label="Åbn synopsisfremlæggelsen om nudging">
             <img src="work/synopsis-nudging/thumb.jpg" alt="Forsideslide: Fra surprise-bag til handling" loading="lazy">
@@ -423,6 +449,7 @@
           <div class="card-body">
             <p class="kicker">2. semester · Opgaveportfolio</p>
             <h3>Fire projekter, fire metoder</h3>
+            <p>Too Good To Go, Digital Data Tools, Behavioural Design og participatory design i Rigsfællesskabet.</p>
             <ul class="mini-list">
               <li><b>Too Good To Go:</b> Business Model Canvas, Blue Ocean og innovation. Mit bidrag var den strategiske analyse.</li>
               <li><b>Digital Data Tools:</b> SEO, video, Power BI og dataindsamling med Micro:bit.</li>
@@ -448,35 +475,12 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ KOMPETENCER ============ -->
-  <section class="section skills-section">
-    <p class="eyebrow reveal">06 — Værktøjskassen</p>
-    <h2 class="reveal">Det jeg arbejder med</h2>
-    <div class="skills">
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">◎</span>
-        <h3>Research og test</h3>
-        <p>Semistrukturerede interviews, observationer, usability-tests (tænke højt), personas, brugerrejser, affinity-diagrammer, participatory design, Design Sprint og prioritering med WSJF.</p>
-      </div>
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">◇</span>
-        <h3>Design og prototyping</h3>
-        <p>Figma (wireframes, mockups, klikbare prototyper og dashboards), informationsarkitektur, brugerflows, sitemaps, InDesign, Illustrator, Photoshop og Premiere Pro.</p>
-      </div>
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">&lt;/&gt;</span>
-        <h3>Web og data</h3>
-        <p>HTML, CSS og JavaScript (denne side er kodet sammen med Claude), Umbraco, GoPublic, Siteimprove og webtilgængelighed (WCAG).</p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- ============ KONTAKT ============ -->
 <footer id="kontakt" class="contact">
   <div class="contact-inner">
-    <p class="eyebrow">07 — Kontakt</p>
+    <p class="eyebrow">06 — Kontakt</p>
     <h2 class="big">Lad os gøre noget <em>komplekst</em> enkelt.</h2>
     <p>Jeg søger en rolle inden for UX og brugerresearch. Hent mit CV, eller skriv direkte til mig.</p>
     <div class="contact-actions">
@@ -488,25 +492,33 @@
       <!-- Indsæt din LinkedIn-adresse her: --> 
       <a class="button ghost-light magnetic" href="https://www.linkedin.com/in/sinan-polat-sp" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-    <div class="colophon">
+    <section class="colophon" aria-labelledby="coloTitle">
       <div class="colo-text">
-        <p class="colo-label">Sådan er siden lavet</p>
-        <p>Indhold, design og idéer er mine. Koden er skrevet sammen med <b>Claude</b>, en AI-assistent, ud fra mine prompts. Prikken, der hopper rundt på siden, er et eksempel.</p>
-        <p>En god prompt er som en god brief: rolle, mål, krav og hvad der skal leveres.</p>
-        <p class="colo-hint">Klik på samtalen for at se den igen.</p>
+        <p class="colo-label">Bag om siden</p>
+        <h3 class="colo-title" id="coloTitle">Sådan er siden lavet</h3>
+        <p>Indhold, design og idéer er mine. Koden er skrevet sammen med <b>Claude</b>, en AI-assistent, ud fra mine prompts.</p>
+        <p>En god prompt er som en god brief: <b>rolle, mål, krav og hvad der skal leveres</b>. Her er den, der gav prikken i logoet øjne.</p>
+        <ul class="colo-facts"><li>HTML · CSS · JavaScript</li><li>Ingen frameworks</li><li>Respekterer "reducer bevægelse"</li></ul>
       </div>
-      <div class="colo-chat" role="group" aria-label="Eksempel på en prompt fra Sinan til Claude og Claudes svar">
-        <div class="cmsg me"><span class="who">Sinan · prompt</span>
-          <div class="cbody cprompt">
-            <p><b>Rolle</b><span>Du er frontend-udvikler på min portfolio i HTML, CSS og JavaScript.</span></p>
-            <p><b>Mål</b><span>Gør punktummet i mit logo til en lille figur, der viser, hvor man er på siden.</span></p>
-            <p><b>Krav</b><span>Ingen frameworks. Brug mine farver og fonte. Respektér "reducer bevægelse". Ændr så lidt som muligt i mine filer.</span></p>
-            <p><b>Lever</b><span>dot.js og dot.css, plus hvordan jeg tester det lokalt.</span></p>
-          </div>
+      <div class="colo-window">
+        <div class="colo-bar">
+          <span class="colo-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="colo-file">prompt.md → dot.js</span>
+          <button class="colo-replay" type="button" aria-label="Afspil samtalen igen"><span aria-hidden="true">↻</span> Afspil igen</button>
         </div>
-        <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Klart! To nye filer, to linjer i din index.html, og prikken står stille for dem, der har slået animationer fra. Her er den</span><span class="cdot" aria-hidden="true"></span></p></div>
+        <div class="colo-chat" role="group" aria-label="Eksempel på en prompt fra Sinan til Claude og Claudes svar">
+          <div class="cmsg me"><span class="who">Sinan · prompt</span>
+            <div class="cbody cprompt">
+              <p><b>Rolle</b><span>Du er frontend-udvikler på min portfolio i HTML, CSS og JavaScript.</span></p>
+              <p><b>Mål</b><span>Gør punktummet i mit logo til en lille figur, der viser, hvor man er på siden.</span></p>
+              <p><b>Krav</b><span>Ingen frameworks. Brug mine farver og fonte. Respektér "reducer bevægelse". Ændr så lidt som muligt i mine filer.</span></p>
+              <p><b>Lever</b><span>dot.js og dot.css, plus hvordan jeg tester det lokalt.</span></p>
+            </div>
+          </div>
+          <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Klart! To nye filer, to linjer i din index.html, og prikken står stille for dem, der har slået animationer fra. Her er den</span><span class="cdot" aria-hidden="true"></span></p></div>
+        </div>
       </div>
-    </div>
+    </section>
     <p class="fine">Materialerne er produceret hos KOMBIT og vises med tilladelse. · Siden er lavet i HTML, CSS og JavaScript sammen med Claude.</p>
   </div>
 </footer>
