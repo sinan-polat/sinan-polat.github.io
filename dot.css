@@ -56,7 +56,7 @@
 }
 
 /* ---------- 5. Kolofon: samtalen med Claude (i den mørke kontakt-sektion) ---------- */
-.colophon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center;margin:0 0 48px;padding:clamp(22px,3vw,32px);border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(255,255,255,.03)}
+.colophon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:start;margin:0 0 48px;padding:clamp(22px,3vw,32px);border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(255,255,255,.03)}
 .colophon .colo-label{font:500 .8rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#FF7A50;margin:0 0 12px}
 .colophon .colo-text p{margin:0 0 .8em}
 .colophon .colo-text b{color:#F5F2EC;font-weight:600}
@@ -82,3 +82,11 @@
 .ctyping i:nth-child(3){animation-delay:.28s}
 @media (max-width:760px){.colophon{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.cdot{transition:none}.ctyping i{animation:none}}
+/* prompten: rolle, mål, krav, lever */
+.colophon .cprompt{max-width:none}
+.cprompt p{display:grid;grid-template-columns:3.6rem 1fr;gap:10px;margin:0;padding:7px 0;border-top:1px solid rgba(21,23,28,.1);font-size:.95rem;line-height:1.45;color:#15171C}
+.cprompt p:first-child{border-top:0;padding-top:0}
+.cprompt p:last-child{padding-bottom:0}
+.cprompt b{font:500 .68rem/1.9 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#C8441F;transition:opacity .2s}
+.colo-chat.armed .cprompt b:not(.on){opacity:0}
+.colophon .cmsg.me{max-width:100%}

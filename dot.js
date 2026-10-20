@@ -3,7 +3,7 @@
    1. Logo-prikken vågner ved hover/fokus, følger markøren og hopper ved klik
    2. Menu-prikken hopper hen til den sektion, man er i, og bliver til markeringen
    3. 404-siden: prikken leder efter siden og bliver selv til nullet
-   4. Kolofonen: samtalen med Claude, hvor punktummet vågner
+   4. Kolofonen: en prompt til Claude, og punktummet i svaret vågner
    Kræver dot.css. Respekterer "reducer bevægelse".
    ========================================================= */
 (() => {
@@ -166,12 +166,13 @@
     if (document.fonts) document.fonts.ready.then(() => { if (header.classList.contains('has-navdot')) snap(); });
   }
 
-  /* ---------- 4. Kolofon: samtalen, hvor prikken fik liv ---------- */
+  /* ---------- 4. Kolofon: prompten, og punktummet der vågner ---------- */
   const chat = $('.colo-chat');
   if (chat) {
     const [me, ai] = $$('.cmsg', chat);
-    const meBody = $('.cbody', me), txt = $('.ctext', ai), cdot = $('.cdot', ai);
-    const meFull = meBody.textContent, aiWords = txt.textContent.split(' ');
+    const lines = $$('.cprompt p > span', me).map(el => ({ el, text: el.textContent }));
+    const labels = $$('.cprompt p > b', me);
+    const txt = $('.ctext', ai), cdot = $('.cdot', ai), aiWords = txt.textContent.split(' ');
     cdot.innerHTML = EYES;
     let timers = [];
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
@@ -180,28 +181,34 @@
       chat.classList.add('armed');
       [me, ai].forEach(m => m.classList.remove('show'));
       cdot.classList.remove('awake', 'pop'); lookAt(cdot, 0, 0);
-      meBody.textContent = ''; txt.textContent = '';
-      // Sinan skriver
+      lines.forEach(l => { l.el.textContent = ''; }); labels.forEach(b => b.classList.remove('on'));
+      txt.textContent = '';
+      // prompten skrives linje for linje: rolle, mål, krav, lever
       at(150, () => me.classList.add('show'));
-      [...meFull].forEach((ch, i) => at(250 + i * 32, () => { meBody.textContent += ch; }));
-      const t1 = 250 + meFull.length * 32 + 450;
-      // Claude "tænker" med tre hoppende prikker og svarer ord for ord
+      let t = 300;
+      lines.forEach((l, i) => {
+        at(t, () => labels[i].classList.add('on'));
+        [...l.text].forEach((ch, k) => at(t + 120 + k * 13, () => { l.el.textContent += ch; }));
+        t += 120 + l.text.length * 13 + 220;
+      });
+      // Claude tænker med tre hoppende prikker og svarer ord for ord
+      const t1 = t + 250;
       at(t1, () => { ai.classList.add('show'); txt.innerHTML = '<span class="ctyping"><i></i><i></i><i></i></span>'; });
       const t2 = t1 + 1300;
       at(t2, () => { txt.textContent = ''; });
-      aiWords.forEach((w, i) => at(t2 + i * 85, () => { txt.textContent += (i ? ' ' : '') + w; }));
+      aiWords.forEach((w, i) => at(t2 + i * 70, () => { txt.textContent += (i ? ' ' : '') + w; }));
       // ... og punktummet vågner
-      const t3 = t2 + aiWords.length * 85 + 150;
+      const t3 = t2 + aiWords.length * 70 + 150;
       at(t3, () => cdot.classList.add('pop'));
       at(t3 + 700, () => cdot.classList.add('awake'));
-      at(t3 + 1050, () => lookAt(cdot, .7, -.9));            // kigger op på Sinan
+      at(t3 + 1050, () => lookAt(cdot, .7, -.9));            // kigger op på prompten
       at(t3 + 1700, () => lookAt(cdot, -.4, .25));           // og ud på dig
       at(t3 + 2200, () => blink(cdot));
       at(t3 + 2450, () => hop(cdot, .8));
       at(t3 + 3600, () => { lookAt(cdot, 0, 0); cdot.classList.remove('awake'); });
     }
     if (!reduce) {
-      new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { play(); obs.disconnect(); } }, { threshold: .5 }).observe(chat);
+      new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { play(); obs.disconnect(); } }, { threshold: .4 }).observe(chat);
       chat.addEventListener('click', play);
     }
   }

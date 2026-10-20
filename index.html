@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=7">
-<link rel="stylesheet" href="dot.css?v=2">
+<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="dot.css?v=3">
 <script>
   /* Sæt tema før siden tegnes, så den ikke blinker */
   (function(){try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
@@ -31,8 +31,8 @@
   <nav class="nav" id="nav" aria-label="Hovedmenu">
     <a href="#om">Om mig</a>
     <a href="#bachelor">Bachelor</a>
-    <a href="#arbejde">Arbejde</a>
     <a href="#motion">Motion</a>
+    <a href="#arbejde">Arbejde</a>
     <a href="#uddannelse">Uddannelse</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
@@ -118,12 +118,13 @@
 
     <div class="concept proto reveal">
       <div class="concept-side">
-        <p class="kicker">Håndkodet prototype · HTML, CSS og JavaScript</p>
+        <p class="kicker">Webprototype · Figma-design kodet med Claude</p>
         <h3 class="proto-title">Et nyt Valg.dk, bygget op om brugernes spørgsmål</h3>
         <p class="proto-text">Forsiden starter med det, brugerne kommer for: at finde resultatet for deres kommune, sammenligne områder og hente data. Resultaterne vises på et interaktivt kort, og man kan skifte mellem valgdeltagelse og største parti.</p>
         <dl class="facts">
           <div><dt>Samarbejde</dt><dd>KOMBIT</dd></div>
-          <div><dt>Min rolle</dt><dd>UX research, konceptudvikling og kode</dd></div>
+          <div><dt>Min rolle</dt><dd>UX research, informationsarkitektur og Figma-prototype</dd></div>
+          <div><dt>Kode</dt><dd>Claude (AI) ud fra mit Figma-design</dd></div>
           <div><dt>Brugertest</dt><dd>11. november 2026</dd></div>
           <div><dt>Afleveres</dt><dd>18. december 2026</dd></div>
         </dl>
@@ -142,42 +143,80 @@
       </a>
     </div>
 
-    <div class="process">
-      <div class="diamond reveal">
-        <svg viewBox="0 0 600 200" role="img" aria-label="Double Diamond-modellen med fire faser">
-          <path class="dd-shape" d="M10 100 L150 15 L290 100 L150 185 Z"/>
-          <path class="dd-shape" d="M310 100 L450 15 L590 100 L450 185 Z"/>
-          <line class="dd-split" x1="150" y1="15" x2="150" y2="185"/>
-          <line class="dd-split" x1="450" y1="15" x2="450" y2="185"/>
-          <g class="dd-zone" data-step="0" tabindex="0" role="button" aria-label="Discover"><path d="M10 100 L150 15 L150 185 Z"/><text x="100" y="106">Discover</text></g>
-          <g class="dd-zone" data-step="1" tabindex="0" role="button" aria-label="Define"><path d="M150 15 L290 100 L150 185 Z"/><text x="200" y="106">Define</text></g>
-          <g class="dd-zone" data-step="2" tabindex="0" role="button" aria-label="Develop"><path d="M310 100 L450 15 L450 185 Z"/><text x="400" y="106">Develop</text></g>
-          <g class="dd-zone" data-step="3" tabindex="0" role="button" aria-label="Deliver"><path d="M450 15 L590 100 L450 185 Z"/><text x="500" y="106">Deliver</text></g>
-        </svg>
-        <p class="dd-caption">Double Diamond · klik på en fase</p>
-      </div>
-      <div class="step-panel reveal" aria-live="polite">
-        <p class="step-num">Fase <span>1</span> / 4</p>
-        <h3 class="step-title">Discover</h3>
-        <p class="step-text"></p>
-        <ul class="tags step-tags"></ul>
-      </div>
-    </div>
+    <ol class="proto-steps">
+      <li class="reveal"><span class="ps-num">01</span><b>Research</b><p>Interviews og observationer med brugere af Valg.dk: Hvem bruger siden, hvad leder de efter, og hvor går de i stå?</p></li>
+      <li class="reveal"><span class="ps-num">02</span><b>Indsigt</b><p>Dataene findes, men strukturen følger valgets afvikling og ikke brugernes spørgsmål. Fire brugergrupper deler én indgang.</p></li>
+      <li class="reveal"><span class="ps-num">03</span><b>Figma-prototype</b><p>En ny informationsstruktur med indgange efter brugergruppe, designet som wireframes og klikbar prototype i Figma.</p></li>
+      <li class="reveal ai"><span class="ps-num">04</span><b>Kodet prototype</b><p>Figma-designet er omsat til en fungerende webprototype sammen med Claude, så den kan testes med kort, data og rigtig interaktion.</p></li>
+    </ol>
     <p class="note reveal">Teori og metode: Garrett (The Elements of User Experience), Den Dekker (design thinking), Yablonski (Laws of UX) og Houde &amp; Hill (What do prototypes prototype?).</p>
   </section>
 
-  <!-- ============ DATA-DEMO ============ -->
-  <section class="section data-demo">
-    <div class="data-head">
-      <p class="eyebrow reveal">03 — Dataformidling</p>
-      <h2 class="reveal">Samme tal, to formater</h2>
-      <p class="reveal">Tallene kommer fra min A1-plakat over kommuner og regioner. På plakaten blev de til farvede regioner og cirkler. Her bliver de til en interaktiv graf, for formidling handler om at vælge det format, der passer til situationen.</p>
-      <div class="toggle reveal" role="group" aria-label="Vis tal som">
-        <button type="button" class="on" data-mode="antal" aria-pressed="true">Antal borgere</button>
-        <button type="button" data-mode="andel" aria-pressed="false">Andel af Danmark</button>
-      </div>
+  <!-- ============ MOTION ============ -->
+  <section id="motion" class="section motion-section">
+    <div class="section-head">
+      <p class="eyebrow reveal">03 — Motion</p>
+      <h2 class="reveal">Ting, der bevæger sig</h2>
+      <p class="lead small reveal">Motion graphics og animation. Videoerne kører uden lyd. Tryk på højttaleren for at høre dem.</p>
     </div>
-    <div class="bars reveal" id="bars"></div>
+
+    <div class="motion">
+      <article class="mcard mfeature reveal">
+        <div class="mmedia hika">
+          <figure class="phone">
+            <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/hikayahuset-poster.jpg" aria-label="Intro til Hikayahuset: dronen stiger op over huset i solnedgang, og titlen lægger sig bag horisonten">
+              <source src="MP4/hikayahuset-web.mp4" type="video/mp4">
+            </video>
+            <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+            </button>
+          </figure>
+          <figure class="print">
+            <img src="img/hikayahuset-plakat-web.jpg" alt="Plakat for Hikayahuset: titlen ligger bag horisonten over et luftfoto af huset og markerne" loading="lazy" width="900" height="1350">
+          </figure>
+        </div>
+        <div class="mbody">
+          <p class="kicker">Motion graphic · Plakat</p>
+          <h3>Hikayahuset: en fortælling</h3>
+          <p>Intro til opholdsstedet Hikayahuset. Dronen stiger op over huset i solnedgang, og titlen glider ind og lægger sig bag horisonten, så typografien bliver en del af landskabet. Plakaten bruger samme greb.</p>
+          <p class="role"><b>Min rolle:</b> Motion design, typografi og plakat.</p>
+          <ul class="tags"><li>Motion design</li><li>Typografi</li><li>Plakat</li><li>9:16</li></ul>
+        </div>
+      </article>
+
+      <article class="mcard reveal">
+        <figure class="mmedia wide16">
+          <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/sinan-polat-logo-story-poster.jpg" aria-label="Logoanimation: prikken i Sinan Polat vågner, retter det skæve l op og bliver til logoet igen">
+            <source src="MP4/sinan-polat-logo-story.webm" type="video/webm">
+            <source src="MP4/sinan-polat-logo-story.mp4" type="video/mp4">
+          </video>
+          <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+          </button>
+        </figure>
+        <div class="mbody">
+          <p class="kicker">Logoanimation · 7 sek.</p>
+          <h3>Prikken retter l'et op</h3>
+          <p>Punktummet i mit logo vågner, opdager at l'et står skævt, skubber det på plads og bliver til et almindeligt punktum igen.</p>
+          <p class="made">Lavet med Claude ud fra mit logo</p>
+        </div>
+      </article>
+
+      <article class="mcard reveal">
+        <figure class="mmedia wide16">
+          <video class="mvid" controls playsinline preload="none" poster="MP4/sinan-polat-punktum-poster.jpg" aria-label="Animeret fortælling: prikken fra logoet rejser gennem Double Diamond-processen">
+            <source src="MP4/sinan-polat-punktum.webm" type="video/webm">
+            <source src="MP4/sinan-polat-punktum.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <div class="mbody">
+          <p class="kicker">Animeret fortælling · 56 sek.</p>
+          <h3>Hvor andre sætter punktum</h3>
+          <p>Prikken rejser gennem Double Diamond: fra brugerinterviews og post-its over prototyper og plakater til en løsning, hvor svaret findes på under fem sekunder.</p>
+          <p class="made">Lavet med Claude ud fra mit logo og mine tre principper</p>
+        </div>
+      </article>
+    </div>
   </section>
 
   <!-- ============ ARBEJDE ============ -->
@@ -345,77 +384,10 @@
     </div>
   </section>
 
-  <!-- ============ MOTION ============ -->
-  <section id="motion" class="section motion-section">
-    <div class="section-head">
-      <p class="eyebrow reveal">05 — Motion</p>
-      <h2 class="reveal">Ting, der bevæger sig</h2>
-      <p class="lead small reveal">Motion graphics og animation. Videoerne kører uden lyd. Tryk på højttaleren for at høre dem.</p>
-    </div>
-
-    <div class="motion">
-      <article class="mcard mfeature reveal">
-        <div class="mmedia hika">
-          <figure class="phone">
-            <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/hikayahuset-poster.jpg" aria-label="Intro til Hikayahuset: dronen stiger op over huset i solnedgang, og titlen lægger sig bag horisonten">
-              <source src="MP4/hikayahuset-web.mp4" type="video/mp4">
-            </video>
-            <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
-            </button>
-          </figure>
-          <figure class="print">
-            <img src="img/hikayahuset-plakat-web.jpg" alt="Plakat for Hikayahuset: titlen ligger bag horisonten over et luftfoto af huset og markerne" loading="lazy" width="900" height="1350">
-          </figure>
-        </div>
-        <div class="mbody">
-          <p class="kicker">Motion graphic · Plakat</p>
-          <h3>Hikayahuset: en fortælling</h3>
-          <p>Intro til opholdsstedet Hikayahuset. Dronen stiger op over huset i solnedgang, og titlen glider ind og lægger sig bag horisonten, så typografien bliver en del af landskabet. Plakaten bruger samme greb.</p>
-          <p class="role"><b>Min rolle:</b> Motion design, typografi og plakat.</p>
-          <ul class="tags"><li>Motion design</li><li>Typografi</li><li>Plakat</li><li>9:16</li></ul>
-        </div>
-      </article>
-
-      <article class="mcard reveal">
-        <figure class="mmedia wide16">
-          <video class="mvid" data-autoplay muted loop playsinline preload="none" poster="MP4/sinan-polat-logo-story-poster.jpg" aria-label="Logoanimation: prikken i Sinan Polat vågner, retter det skæve l op og bliver til logoet igen">
-            <source src="MP4/sinan-polat-logo-story.webm" type="video/webm">
-            <source src="MP4/sinan-polat-logo-story.mp4" type="video/mp4">
-          </video>
-          <button class="msound" type="button" aria-pressed="false" aria-label="Slå lyd til">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
-          </button>
-        </figure>
-        <div class="mbody">
-          <p class="kicker">Logoanimation · 7 sek.</p>
-          <h3>Prikken retter l'et op</h3>
-          <p>Punktummet i mit logo vågner, opdager at l'et står skævt, skubber det på plads og bliver til et almindeligt punktum igen.</p>
-          <p class="made">Lavet med Claude ud fra mit logo</p>
-        </div>
-      </article>
-
-      <article class="mcard reveal">
-        <figure class="mmedia wide16">
-          <video class="mvid" controls playsinline preload="none" poster="MP4/sinan-polat-punktum-poster.jpg" aria-label="Animeret fortælling: prikken fra logoet rejser gennem Double Diamond-processen">
-            <source src="MP4/sinan-polat-punktum.webm" type="video/webm">
-            <source src="MP4/sinan-polat-punktum.mp4" type="video/mp4">
-          </video>
-        </figure>
-        <div class="mbody">
-          <p class="kicker">Animeret fortælling · 56 sek.</p>
-          <h3>Hvor andre sætter punktum</h3>
-          <p>Prikken rejser gennem Double Diamond: fra brugerinterviews og post-its over prototyper og plakater til en løsning, hvor svaret findes på under fem sekunder.</p>
-          <p class="made">Lavet med Claude ud fra mit logo og mine tre principper</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <!-- ============ UDDANNELSE ============ -->
   <section id="uddannelse" class="section edu">
     <div class="section-head">
-      <p class="eyebrow reveal">06 — Uddannelse</p>
+      <p class="eyebrow reveal">05 — Uddannelse</p>
       <h2 class="reveal">Skole, praktik og det faglige fundament</h2>
       <p class="lead small reveal">Uddannelsen har givet mig metoderne. Opgaverne her viser, hvordan jeg bruger dem: adfærdsdesign, forretningsforståelse og brugerinddragelse.</p>
     </div>
@@ -479,7 +451,7 @@
 
   <!-- ============ KOMPETENCER ============ -->
   <section class="section skills-section">
-    <p class="eyebrow reveal">07 — Værktøjskassen</p>
+    <p class="eyebrow reveal">06 — Værktøjskassen</p>
     <h2 class="reveal">Det jeg arbejder med</h2>
     <div class="skills">
       <div class="skill reveal">
@@ -504,7 +476,7 @@
 <!-- ============ KONTAKT ============ -->
 <footer id="kontakt" class="contact">
   <div class="contact-inner">
-    <p class="eyebrow">08 — Kontakt</p>
+    <p class="eyebrow">07 — Kontakt</p>
     <h2 class="big">Lad os gøre noget <em>komplekst</em> enkelt.</h2>
     <p>Jeg søger en rolle inden for UX og brugerresearch. Hent mit CV, eller skriv direkte til mig.</p>
     <div class="contact-actions">
@@ -519,12 +491,20 @@
     <div class="colophon">
       <div class="colo-text">
         <p class="colo-label">Sådan er siden lavet</p>
-        <p>Indhold, design og idéer er mine. Koden er skrevet sammen med <b>Claude</b>, en AI-assistent. Det gælder også prikken, der hopper rundt på siden.</p>
+        <p>Indhold, design og idéer er mine. Koden er skrevet sammen med <b>Claude</b>, en AI-assistent, ud fra mine prompts. Prikken, der hopper rundt på siden, er et eksempel.</p>
+        <p>En god prompt er som en god brief: rolle, mål, krav og hvad der skal leveres.</p>
         <p class="colo-hint">Klik på samtalen for at se den igen.</p>
       </div>
-      <div class="colo-chat" role="group" aria-label="Samtale mellem Sinan og Claude om prikken i logoet">
-        <div class="cmsg me"><span class="who">Sinan</span><p class="cbody">Kan du få prikken i mit logo til at leve?</p></div>
-        <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Ja! Den får øjne, følger musen og hopper hen til det menupunkt, du læser ved</span><span class="cdot" aria-hidden="true"></span></p></div>
+      <div class="colo-chat" role="group" aria-label="Eksempel på en prompt fra Sinan til Claude og Claudes svar">
+        <div class="cmsg me"><span class="who">Sinan · prompt</span>
+          <div class="cbody cprompt">
+            <p><b>Rolle</b><span>Du er frontend-udvikler på min portfolio i HTML, CSS og JavaScript.</span></p>
+            <p><b>Mål</b><span>Gør punktummet i mit logo til en lille figur, der viser, hvor man er på siden.</span></p>
+            <p><b>Krav</b><span>Ingen frameworks. Brug mine farver og fonte. Respektér "reducer bevægelse". Ændr så lidt som muligt i mine filer.</span></p>
+            <p><b>Lever</b><span>dot.js og dot.css, plus hvordan jeg tester det lokalt.</span></p>
+          </div>
+        </div>
+        <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Klart! To nye filer, to linjer i din index.html, og prikken står stille for dem, der har slået animationer fra. Her er den</span><span class="cdot" aria-hidden="true"></span></p></div>
       </div>
     </div>
     <p class="fine">Materialerne er produceret hos KOMBIT og vises med tilladelse. · Siden er lavet i HTML, CSS og JavaScript sammen med Claude.</p>
@@ -570,7 +550,7 @@
 </div>
 
 <div class="toast" role="status" aria-live="polite"></div>
-<script src="script.js?v=7" defer></script>
-<script src="dot.js?v=2" defer></script>
+<script src="script.js?v=8" defer></script>
+<script src="dot.js?v=3" defer></script>
 </body>
 </html>
