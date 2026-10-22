@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <link rel="stylesheet" href="dot.css?v=4">
 <script>
   /* Sæt tema før siden tegnes, så den ikke blinker */
@@ -38,7 +38,7 @@
   <a class="brand" href="#top" aria-label="Sinan Polat – til toppen">Sinan Polat<span class="dot"></span></a>
   <nav class="nav" id="nav" aria-label="Hovedmenu">
     <a href="#cases">Cases</a>
-    <a href="#arbejde">Arbejde</a>
+    <a href="#arbejde">Materialer</a>
     <a href="#motion">Motion</a>
     <a href="om/">Om mig</a>
     <a href="#kontakt">Kontakt</a>
@@ -63,11 +63,17 @@
       <div class="hero-text">
         <p class="status reveal"><span class="pulse"></span>Søger en rolle inden for UX &amp; brugerresearch</p>
         <h1 class="reveal">Jeg gør komplekse <span class="rotator" aria-live="polite"><span class="rotator-word">offentlige data</span></span> lette at finde og forstå.</h1>
-        <p class="lead reveal">Hej, jeg hedder Sinan 👋 Jeg er uddannet multimediedesigner og arbejder dér, hvor <strong>brugerresearch</strong>, <strong>informationsarkitektur</strong> og <strong>visuel formidling</strong> mødes. Den 18. december 2026 afleverer jeg min professionsbachelor i Digital Konceptudvikling.</p>
+        <p class="lead reveal">Hej, jeg hedder Sinan 👋 Jeg er uddannet multimediedesigner og arbejder dér, hvor <strong>brugerresearch</strong>, <strong>informationsarkitektur</strong> og <strong>visuel formidling</strong> mødes.</p>
         <p class="actions reveal">
-          <a class="button magnetic" href="#cases">Se mine cases <span aria-hidden="true">→</span></a>
+          <a class="button magnetic" href="#oversigt">Se mit arbejde <span aria-hidden="true">→</span></a>
           <button class="button ghost magnetic" type="button" data-viewer data-slug="cv" data-pages="2" data-pdf="pdf/CV-Sinan-Polat.pdf" data-title="CV – Sinan Polat">Se mit CV</button>
         </p>
+        <dl class="quick-facts reveal" aria-label="Kort om mig">
+          <div><dt>Søger</dt><dd>Rolle i UX og brugerresearch</dd></div>
+          <div><dt>Nu</dt><dd>Studentermedhjælper i KOMBIT siden 2024</dd></div>
+          <div><dt>Uddannelse</dt><dd>PBA i Digital Konceptudvikling, dec. 2026</dd></div>
+          <div><dt>Styrker</dt><dd>Research · Informationsarkitektur · Formidling</dd></div>
+        </dl>
       </div>
       <div class="hero-visual reveal" data-parallax>
         <div class="portrait">
@@ -80,7 +86,7 @@
         <svg class="scribble" viewBox="0 0 120 60" aria-hidden="true"><path d="M5 40c20-30 40-30 50-5s30 20 55-20"/><path d="M100 10l12 5-7 11"/></svg>
       </div>
     </div>
-    <a class="scroll-hint" href="#cases" aria-label="Scroll ned"><span></span></a>
+    <a class="scroll-hint" href="#oversigt" aria-label="Scroll ned"><span></span></a>
   </section>
 
   <!-- ============ MARQUEE ============ -->
@@ -90,6 +96,41 @@
     </div>
   </div>
 
+
+
+  <!-- ============ UDSTILLINGSVINDUE ============ -->
+  <section id="oversigt" class="section showcase" aria-labelledby="svTitle">
+    <div class="section-head">
+      <p class="eyebrow reveal">Overblik</p>
+      <h2 class="reveal" id="svTitle">Alt, jeg har lavet, på ét blik</h2>
+    </div>
+    <div class="sv-grid">
+      <a class="sv-tile reveal" href="/valg.dk/" target="_blank" rel="noopener">
+        <span class="sv-img"><img src="work/valg-prototype/forside.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">Bachelorprojekt</span><b>Valg.dk, gentænkt</b><span class="sv-text">Research, IA og webprototype bygget op om brugernes spørgsmål.</span><span class="sv-go">Prøv prototypen ↗</span></span>
+      </a>
+      <a class="sv-tile reveal" href="/lyng-ventilation/" target="_blank" rel="noopener">
+        <span class="sv-img"><img src="work/lyng-ventilation/forside.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">Kundeprojekt</span><b>Lyng Ventilation</b><span class="sv-text">Hjemmeside, der forklarer et teknisk produkt enkelt.</span><span class="sv-go">Besøg siden ↗</span></span>
+      </a>
+      <a class="sv-tile reveal" href="/feedback-flow/" target="_blank" rel="noopener">
+        <span class="sv-img"><img src="work/feedback-prototype/web.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">Praktik · KOMBIT</span><b>Feedback Flow</b><span class="sv-text">Fra spredte henvendelser til et prioriteret dashboard.</span><span class="sv-go">Prøv prototypen ↗</span></span>
+      </a>
+      <a class="sv-tile reveal" href="#arbejde">
+        <span class="sv-img"><img src="work/kombit-iceland/thumb.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">KOMBIT · 10 materialer</span><b>Plakater, rapporter og slides</b><span class="sv-text">Datavisualisering, layout og præsentationer til kommunerne.</span><span class="sv-go">Se materialerne ↓</span></span>
+      </a>
+      <a class="sv-tile reveal" href="#motion">
+        <span class="sv-img"><img src="img/hikayahuset-plakat-web.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">Motion · 3 videoer</span><b>Ting, der bevæger sig</b><span class="sv-text">Motion graphics, logoanimation og en animeret fortælling.</span><span class="sv-go">Se videoerne ↓</span></span>
+      </a>
+      <a class="sv-tile reveal" href="om/">
+        <span class="sv-img"><img src="img/sinan-arbejde.jpg" alt="" loading="lazy"></span>
+        <span class="sv-body"><span class="sv-kicker">Om mig</span><b>Hvem er Sinan?</b><span class="sv-text">KOMBIT, principper, uddannelse og skoleopgaver med karakter.</span><span class="sv-go">Læs om mig →</span></span>
+      </a>
+    </div>
+  </section>
 
   <!-- ============ CASES ============ -->
   <section id="cases" class="section cases">
