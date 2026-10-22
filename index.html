@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="stylesheet" href="dot.css?v=4">
 <script>
   /* Sæt tema før siden tegnes, så den ikke blinker */
@@ -32,11 +32,12 @@
     <a href="#cases">Cases</a>
     <a href="#arbejde">Arbejde</a>
     <a href="#motion">Motion</a>
-    <a href="#om">Om mig</a>
-    <a href="#uddannelse">Uddannelse</a>
+    <a href="om/">Om mig</a>
     <a href="#kontakt">Kontakt</a>
+    <a class="nav-switch" href="https://sinanp.dk/">Forretning: sinanp.dk ↗</a>
   </nav>
   <div class="header-tools">
+    <nav class="site-tabs" aria-label="Skift side"><a class="on" href="https://portfolio.sinanp.dk/" aria-current="true">Portfolio</a><a href="https://sinanp.dk/">Forretning</a></nav>
     <a class="cv-link" href="pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf"><span class="long">Download </span>CV <span aria-hidden="true">↓</span></a>
     <button class="icon-btn" id="themeToggle" type="button" aria-label="Skift mellem lyst og mørkt tema">
       <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
@@ -116,15 +117,6 @@
         </div>
       </a>
     </div>
-
-    <p class="steps-label reveal">Sådan blev Valg.dk-prototypen til</p>
-    <ol class="proto-steps" aria-label="Processen bag Valg.dk-prototypen">
-      <li class="reveal"><span class="ps-num">01</span><b>Research</b><p>Interviews og observationer: hvem bruger siden, og hvor går de i stå?</p></li>
-      <li class="reveal"><span class="ps-num">02</span><b>Indsigt</b><p>Strukturen følger valgets afvikling, ikke brugernes spørgsmål.</p></li>
-      <li class="reveal"><span class="ps-num">03</span><b>Figma-prototype</b><p>Indgange efter brugergruppe, som wireframes og klikbar prototype.</p></li>
-      <li class="reveal ai"><span class="ps-num">04</span><b>Kodet prototype</b><p>Omsat til en webprototype med Claude, så den kan testes med rigtige data.</p></li>
-    </ol>
-    <p class="note small-note reveal">Teori og metode: Garrett (The Elements of User Experience), Den Dekker (design thinking), Yablonski (Laws of UX) og Houde &amp; Hill (What do prototypes prototype?).</p>
 
     <div class="case-grid">
       <article class="case lyng reveal">
@@ -374,113 +366,19 @@
     </div>
   </section>
 
-  <!-- ============ OM MIG ============ -->
-  <section id="om" class="section about">
-    <div class="about-photo reveal">
-      <img src="img/sinan-arbejde.jpg" alt="Sinan Polat ved sin arbejdsplads" loading="lazy" width="1600" height="1200">
-      <span class="photo-tag">På kontoret hos KOMBIT</span>
-    </div>
-    <div class="about-text">
-      <p class="eyebrow reveal">04 — Om mig</p>
-      <h2 class="reveal">Fra fagtungt indhold til noget, folk <em>faktisk</em> kan bruge.</h2>
-      <p class="reveal">Siden april 2024 har jeg været studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling. Her har jeg arbejdet tæt på de fælleskommunale it-løsninger FLIS, DUBU, KY og Bibliotekernes Data og It og lavet indhold til hjemmeside, nyhedsbreve, LinkedIn, Digitaliseringsmessen og podcasten Den Grønne Kode. Målgruppen er ledere, sagsbehandlere og specialister i 98 kommuner, og indholdet er ofte tungt: lovgivning, data og systemer.</p>
-      <p class="reveal">Min opgave har været at <strong>oversætte</strong>. Først forstår jeg, hvem der skal bruge materialet og hvorfor. Så strukturerer jeg indholdet, og til sidst gør jeg det visuelt. Det er den samme tankegang, jeg bruger i UX-arbejdet.</p>
-      <ul class="principles reveal">
-        <li><span>01</span>Brugeren før løsningen</li>
-        <li><span>02</span>Struktur før stil</li>
-        <li><span>03</span>Data skal kunne læses på 5 sekunder</li>
-      </ul>
-    </div>
-    <div class="skills in-about" aria-label="Det jeg arbejder med">
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">◎</span>
-        <h3>Research og test</h3>
-        <p>Semistrukturerede interviews, observationer, usability-tests (tænke højt), personas, brugerrejser, affinity-diagrammer, participatory design, Design Sprint og prioritering med WSJF.</p>
-      </div>
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">◇</span>
-        <h3>Design og prototyping</h3>
-        <p>Figma (wireframes, mockups, klikbare prototyper og dashboards), informationsarkitektur, brugerflows, sitemaps, InDesign, Illustrator, Photoshop og Premiere Pro.</p>
-      </div>
-      <div class="skill reveal">
-        <span class="skill-ico" aria-hidden="true">&lt;/&gt;</span>
-        <h3>Web og data</h3>
-        <p>HTML, CSS og JavaScript (denne side er kodet sammen med Claude), Umbraco, GoPublic, Siteimprove og webtilgængelighed (WCAG).</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ UDDANNELSE ============ -->
-  <section id="uddannelse" class="section edu">
-    <div class="section-head">
-      <p class="eyebrow reveal">05 — Uddannelse</p>
-      <h2 class="reveal">Skole, praktik og det faglige fundament</h2>
-      <p class="lead small reveal">Uddannelsen har givet mig metoderne. Opgaverne her viser, hvordan jeg bruger dem: adfærdsdesign, forretningsforståelse og brugerinddragelse.</p>
-    </div>
-    <div class="edu-grid">
-      <ol class="timeline reveal">
-        <li class="now"><span class="when">2025 – dec. 2026</span><b>Professionsbachelor i Digital Konceptudvikling</b><span>Zealand · Brugerresearch og test, Design Sprint, forretningsforståelse og prototyping i Figma.</span></li>
-        <li><span class="when">Jan.–mar. 2025 · jul.–okt. 2026</span><b>Praktik i KOMBIT</b><span>Kommunikation, brugerinddragelse, feedbackprocesser og prioritering.</span></li>
-        <li><span class="when">Færdig juni 2025</span><b>Erhvervsakademiuddannelse i Multimediedesign</b><span>CPH Business · Digital design og UX, front-end og indholdsproduktion. Hovedopgave skrevet i samarbejde med KOMBIT.</span></li>
-        <li><span class="when">2021 – 2023</span><b>Uddannelsesvidenskab</b><span>Aarhus Universitet · Ikke afsluttet. Uddannelsesdata, pædagogik og læringsteori.</span></li>
-        <li><span class="when">2017 – 2020</span><b>STX</b><span>Rungsted Gymnasium · Samfundsfag A og matematik B.</span></li>
-      </ol>
-      <div class="school compact-school">
-        <article class="card school-card" data-slug="synopsis-nudging" data-pages="15" data-pdf="pdf/synopsis-nudging-fremlaeggelse.pdf">
-          <button class="card-media" type="button" aria-label="Åbn synopsisfremlæggelsen om nudging">
-            <img src="work/synopsis-nudging/thumb.jpg" alt="Forsideslide: Fra surprise-bag til handling" loading="lazy">
-            <span class="badge">15 slides · PDF</span>
-            <span class="grade">Karakter <b>10</b></span>
-          </button>
-          <div class="card-body">
-            <p class="kicker">2. semester · Synopsis og fremlæggelse</p>
-            <h3>Fra surprise-bag til handling</h3>
-            <p>Hvordan kan Too Good To Go bruge nudging efter købet til at reducere friktionen mellem den modtagne overskudsmad og brugerens faktiske brug af den, uden at ændre surprise-bag-modellen?</p>
-            <p class="role"><b>Indsigt:</b> Problemet er ikke nødvendigvis viden, men overgangen fra intention til handling. Forslaget er tre diskrete nudges: opskrift, timing og feedback, placeret tæt på brugerens beslutningsøjeblik og altid lette at fravælge.</p>
-            <ul class="tags"><li>Nudging</li><li>Thaler &amp; Sunstein</li><li>Kahneman</li><li>Münster</li><li>Etik</li></ul>
-            <p class="more"><a href="pdf/opgaveportfolio-2-semester.pdf" target="_blank" rel="noopener">Læs hele opgaven (PDF) ↗</a></p>
-          </div>
-        </article>
-        <article class="card school-card" data-slug="opgaveportfolio" data-pages="14" data-pdf="pdf/opgaveportfolio-2-semester.pdf">
-          <button class="card-media" type="button" aria-label="Åbn opgaveportfolio for 2. semester">
-            <img src="work/opgaveportfolio/thumb.jpg" alt="Forside til opgaveportfolio og synopsis, 2. semester" loading="lazy">
-            <span class="badge">14 sider · PDF</span>
-          </button>
-          <div class="card-body">
-            <p class="kicker">2. semester · Opgaveportfolio</p>
-            <h3>Fire projekter, fire metoder</h3>
-            <p>Too Good To Go, Digital Data Tools, Behavioural Design og participatory design i Rigsfællesskabet.</p>
-            <ul class="mini-list">
-              <li><b>Too Good To Go:</b> Business Model Canvas, Blue Ocean og innovation. Mit bidrag var den strategiske analyse.</li>
-              <li><b>Digital Data Tools:</b> SEO, video, Power BI og dataindsamling med Micro:bit.</li>
-              <li><b>Behavioural Design:</b> Hooked-modellen på TikTok, gamification og etisk nudging.</li>
-              <li><b>Afstand i Rigsfællesskabet:</b> participatory design med visuelle boards.</li>
-            </ul>
-            <ul class="tags"><li>BMC</li><li>Power BI</li><li>Hooked</li><li>Participatory design</li></ul>
-          </div>
-        </article>
-        <article class="card school-card" data-slug="praktikrapport" data-pages="26" data-pdf="pdf/praktikrapport-kombit-2026.pdf">
-          <button class="card-media" type="button" aria-label="Åbn praktikrapport 2026">
-            <img src="work/praktikrapport/thumb.jpg" alt="Forside til Praktikrapport 2026" loading="lazy">
-            <span class="badge">26 sider · PDF</span>
-          </button>
-          <div class="card-body">
-            <p class="kicker">3. semester · 10 ugers praktik i KOMBIT</p>
-            <h3>Praktikrapport 2026</h3>
-            <p>Om at være juniorressource i en kompleks offentlig organisation: en WSJF-præsentation til prioritering i workshops med produktejere, en A4-skabelon til brugerevents i konceptet Brugerfokus og Feedback Flow-prototypen.</p>
-            <p class="role"><b>Læring:</b> Teoretiske modeller kan sjældent bruges ukritisk. I en organisation med 98 kommuner som ejere fungerede WSJF bedst som et værktøj til dialog og fælles forståelse.</p>
-            <ul class="tags"><li>WSJF</li><li>Brugerfokus</li><li>Garrett</li><li>Houde &amp; Hill</li></ul>
-          </div>
-        </article>
-      </div>
-    </div>
+  <section class="section more-about">
+    <a class="more-about-link reveal" href="om/">
+      <span class="eyebrow">Om mig · Praktik · Uddannelse</span>
+      <b>Hvem er jeg, og hvor kommer jeg fra?</b>
+      <span class="arr" aria-hidden="true">→</span>
+    </a>
   </section>
 </main>
 
 <!-- ============ KONTAKT ============ -->
 <footer id="kontakt" class="contact">
   <div class="contact-inner">
-    <p class="eyebrow">06 — Kontakt</p>
+    <p class="eyebrow">04 — Kontakt</p>
     <h2 class="big">Lad os gøre noget <em>komplekst</em> enkelt.</h2>
     <p>Jeg søger en rolle inden for UX og brugerresearch. Hent mit CV, eller skriv direkte til mig.</p>
     <div class="contact-actions">
@@ -519,7 +417,7 @@
         </div>
       </div>
     </section>
-    <p class="fine">Materialerne er produceret hos KOMBIT og vises med tilladelse. · Siden er lavet i HTML, CSS og JavaScript sammen med Claude.</p>
+    <p class="fine">Materialerne er produceret hos KOMBIT og vises med tilladelse.</p>
   </div>
 </footer>
 
@@ -562,7 +460,7 @@
 </div>
 
 <div class="toast" role="status" aria-live="polite"></div>
-<script src="script.js?v=10" defer></script>
+<script src="script.js?v=11" defer></script>
 <script src="dot.js?v=3" defer></script>
 </body>
 </html>

@@ -223,7 +223,7 @@
   };
   const openViewer = card => {
     const slug = card.dataset.slug, n = +card.dataset.pages, pdf = card.dataset.pdf, svg = card.dataset.svg;
-    vPages = svg ? [svg] : Array.from({ length: n }, (_, i) => `work/${slug}/${i + 1}.jpg`);
+    vPages = svg ? [svg] : Array.from({ length: n }, (_, i) => `${document.body.dataset.base || ''}work/${slug}/${i + 1}.jpg`);
     const title = card.dataset.title || $('h3', card).textContent;
     $('.viewer-title').textContent = title;
     // beskrivelse og "Min rolle" fra kortet (i det kompakte galleri står de ikke på selve kortet)
@@ -366,7 +366,7 @@
   const botEl = $('#bot'), contactEl = $('#kontakt'), heroEl = $('.hero');
   const tuck = () => {
     if (innerWidth > 640 || !botPanel.hidden) { botEl.classList.remove('tucked'); return; }
-    const pastHero = scrollY > heroEl.offsetHeight * .6;
+    const pastHero = scrollY > (heroEl ? heroEl.offsetHeight : 200) * .6;
     const atContact = contactEl.getBoundingClientRect().top < innerHeight * .85;
     botEl.classList.toggle('tucked', !pastHero || atContact);
   };
@@ -375,5 +375,5 @@
 
   /* ---------- Hilsen til nysgerrige udviklere ---------- */
   console.log('%cHej udvikler 👋', 'font:600 20px Georgia;color:#E9532B');
-  console.log('Denne side er lavet af Sinan Polat i HTML, CSS og vanilla JavaScript, kodet sammen med Claude.\nSkriv til sinanp2020@hotmail.com');
+  console.log('Denne side er lavet af Sinan Polat i HTML, CSS og vanilla JavaScript.\nSkriv til sinanp2020@hotmail.com');
 })();
