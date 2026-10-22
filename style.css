@@ -581,3 +581,82 @@ p{margin:0 0 1em;max-width:66ch}
 }
 .case .badge{display:none}
 .case .card-body .mock-note{font-size:.78rem;margin:12px 0 0;color:var(--muted)}
+
+/* ---------- v10: mobilvenlig ---------- */
+/* Menu: mørk baggrund bag menuen, så den tydeligt ligger ovenpå, og et pænere kryds */
+.menu-btn{gap:4px}
+.menu-btn[aria-expanded="true"] span:first-child{transform:translateY(3px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+.menu-scrim{position:fixed;inset:0;z-index:40;background:rgba(16,17,20,.38);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s}
+.menu-open .menu-scrim{opacity:1;pointer-events:auto}
+.mini-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+
+/* Botten skjules øverst på siden og ved kontakt, så den ikke dækker tekst og knapper */
+.bot.tucked .bot-btn{transform:translateY(120px);pointer-events:none}
+
+@media (max-width:760px){
+  .nav{z-index:60;padding:8px}
+  .nav a{padding:13px 16px;border-radius:12px}
+  .nav a.active,.has-navdot .nav a.active{background:var(--tint);color:var(--ink)}
+}
+
+@media (max-width:640px){
+  /* Hero: overskrift og knapper i første skærmbillede. Portrættet bliver et lille rundt billede */
+  .hero{padding:18px 0 40px}
+  .hero-inner{gap:0}
+  .hero-visual{order:-1;justify-self:start;width:96px;margin:6px 0 18px}
+  .hero-visual .portrait{animation:none;border-radius:50%;box-shadow:0 8px 24px -10px rgba(0,0,0,.35)}
+  .hero-visual .chip,.hero-visual .scribble{display:none}
+  .status{font-size:.66rem;letter-spacing:.03em;padding:7px 12px;margin-bottom:18px;white-space:nowrap}
+  .hero h1{font-size:clamp(2.15rem,10vw,2.6rem)}
+  .hero .lead{font-size:1.02rem;margin-top:1em}
+  .hero .actions{margin-top:1.4em;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .actions .button{justify-content:center;padding:14px 16px}
+  .scroll-hint{display:none}
+  .marquee{padding:12px 0}
+  .marquee span{font-size:1rem}
+
+  /* Sektionsoverskrifter lidt mindre, så indholdet kommer hurtigere */
+  h2{font-size:clamp(1.75rem,8vw,2.1rem)}
+  .section-head{margin-bottom:24px}
+  .lead.small{font-size:.98rem}
+
+  /* Cases */
+  .concept{padding:16px;border-radius:18px;gap:18px}
+  .proto-title{font-size:1.35rem}
+  .concept.proto .facts{margin:12px 0 16px}
+  .facts div{grid-template-columns:5.4rem 1fr;gap:10px;padding:8px 0}
+  .facts dt{font-size:.84rem}
+  .facts dd{font-size:.9rem}
+  .proto-cta{display:none}
+  .case .card-body{padding:18px 18px 20px}
+  .case h3{font-size:1.15rem}
+  .case .card-body p{font-size:.92rem}
+  .card-actions{gap:8px}
+  .case .card-actions .button,.concept .card-actions .button{flex:1 1 auto;justify-content:center}
+  .browser-bar span,.mini-bar span{font-size:.68rem}
+
+  /* Filtre som én vandret række, man kan swipe */
+  .filters{flex-wrap:nowrap;overflow-x:auto;margin:0 -24px;padding:2px 24px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:calc(100% + 48px)}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:none}
+
+  /* Om mig: mindre billede */
+  .about-photo{aspect-ratio:16/10}
+  .about{gap:24px}
+
+  /* Kontakt: overskuelige knapper i et gitter */
+  .contact{padding:56px 20px 40px;border-radius:24px 24px 0 0}
+  .contact .big{font-size:clamp(2.2rem,11vw,2.8rem)}
+  .contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 44px}
+  .contact-actions .button{justify-content:center;padding:14px 12px}
+  .contact-actions #copyMail{grid-column:1/-1}
+  .colo-replay{padding:9px 12px}
+
+  /* Botten: lille rund knap */
+  .bot{right:14px;bottom:14px}
+  .bot-btn img{width:46px;height:46px}
+}
+@media (max-width:640px){
+  .contact-actions a[href^="tel:"]{grid-column:1/-1;order:3}
+}

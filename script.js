@@ -21,11 +21,13 @@
 
   /* ---------- Mobilmenu ---------- */
   const menuBtn = $('#menuBtn'), nav = $('#nav');
-  menuBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', open);
-  });
-  $$('a', nav).forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }));
+  // mørk baggrund bag menuen på mobil; tryk udenfor eller Escape lukker den
+  const scrim = document.createElement('div'); scrim.className = 'menu-scrim'; document.body.appendChild(scrim);
+  const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); root.classList.toggle('menu-open', open); };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  scrim.addEventListener('click', () => setMenu(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+  $$('a', nav).forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   /* ---------- Interne links: scroll blødt uden at ændre adressen (#top osv.) ---------- */
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
@@ -187,6 +189,7 @@
   /* ---------- Galleri: lys der følger musen + 3D-tilt ---------- */
   if (finePointer && !reduceMotion) cards.forEach(c => {
     const m = $('.card-media', c);
+    if (!m) return;
     m.addEventListener('pointermove', e => {
       const r = m.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
       m.style.setProperty('--mx', x * 100 + '%'); m.style.setProperty('--my', y * 100 + '%');
@@ -251,7 +254,7 @@
     document.body.style.overflow = '';
     if (lastFocus) lastFocus.focus();
   };
-  cards.forEach(c => $('.card-media', c).addEventListener('click', () => openViewer(c)));
+  cards.forEach(c => { const m = $('.card-media', c); if (m) m.addEventListener('click', () => openViewer(c)); });
   $$('[data-open-card]').forEach(b => b.addEventListener('click', () => openViewer(b.closest('.card'))));
   $$('[data-viewer]').forEach(b => b.addEventListener('click', () => openViewer(b)));
   $('#viewerClose').addEventListener('click', closeViewer);
@@ -359,6 +362,15 @@
     if (open) setTimeout(() => (chips.querySelector('button') || botPanel).focus?.(), 50);
   };
   botBtn.addEventListener('click', () => toggleBot(true));
+  // på små skærme: vis først botten efter toppen, og gem den ved kontaktsektionen
+  const botEl = $('#bot'), contactEl = $('#kontakt'), heroEl = $('.hero');
+  const tuck = () => {
+    if (innerWidth > 640 || !botPanel.hidden) { botEl.classList.remove('tucked'); return; }
+    const pastHero = scrollY > heroEl.offsetHeight * .6;
+    const atContact = contactEl.getBoundingClientRect().top < innerHeight * .85;
+    botEl.classList.toggle('tucked', !pastHero || atContact);
+  };
+  addEventListener('scroll', tuck, { passive: true }); addEventListener('resize', tuck); tuck();
   $('.bot-x').addEventListener('click', () => { toggleBot(false); botBtn.focus(); });
 
   /* ---------- Hilsen til nysgerrige udviklere ---------- */
