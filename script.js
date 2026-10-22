@@ -50,7 +50,7 @@
     header.classList.toggle('scrolled', scrollY > 10);
     let current = '';
     sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * 0.4) current = s.id; });
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    navLinks.forEach(a => { if (a.getAttribute('href').startsWith('#')) a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
   };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -322,14 +322,14 @@
 
   /* ---------- Mini-bot: "Spørg Sinan" ---------- */
   const qa = [
-    { q: 'Hvem er du?', a: 'Jeg hedder Sinan Polat og er multimediedesigner fra Kokkedal. Jeg er ved at afslutte min professionsbachelor i Digital Konceptudvikling og har arbejdet som studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling.' },
+    { q: 'Hvem er du?', a: 'Jeg hedder Sinan Polat og er multimediedesigner. Jeg er ved at afslutte min professionsbachelor i Digital Konceptudvikling og har arbejdet som studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling.' },
     { q: 'Hvad søger du?', a: 'En rolle inden for UX og brugerresearch, gerne hvor komplekst indhold eller data skal gøres brugbart for rigtige mennesker. Det offentlige og B2B-tunge domæner er mit hjemmebane.' },
-    { q: 'Hvad handler dit bachelorprojekt om?', a: 'Valg.dk som dataformidlingsplatform. Jeg undersøger, hvordan borgere, journalister, analytikere og kommunale medarbejdere finder data, og designer en ny informationsstruktur med indgange efter brugergruppe. <a href="#cases">Se det her</a>.' },
-    { q: 'Hvad lavede du i praktikken?', a: 'Jeg lavede en WSJF-præsentation, der blev brugt i workshops med produktejere, en skabelon til brugerevents i konceptet Brugerfokus og på eget initiativ en Figma-prototype til indsamling og prioritering af brugerfeedback. <a href="#cases">Se prototypen her</a>.' },
-    { q: 'Laver du også hjemmesider?', a: 'Ja. Jeg er ved at lave en ny hjemmeside til Lyng Ventilation, et ventilationsfirma i Greve, med indeklima-tjek og AI-chatbot. Koncept, UX, design og kode, skrevet sammen med Claude. <a href="#cases">Se casen her</a>.' },
+    { q: 'Hvad handler dit bachelorprojekt om?', a: 'Valg.dk som dataformidlingsplatform. Jeg undersøger, hvordan borgere, journalister, analytikere og kommunale medarbejdere finder data, og designer en ny informationsstruktur med indgange efter brugergruppe. <a href="/cases/#valg">Se det her</a>.' },
+    { q: 'Hvad lavede du i praktikken?', a: 'Jeg lavede en WSJF-præsentation, der blev brugt i workshops med produktejere, og en skabelon til brugerevents i konceptet Brugerfokus. Du kan også se de materialer, jeg har lavet i KOMBIT. <a href="/materialer/">Se materialerne her</a>.' },
+    { q: 'Laver du også hjemmesider?', a: 'Ja. Jeg er ved at lave en ny hjemmeside til Lyng Ventilation, et ventilationsfirma i Greve, med indeklima-tjek og AI-chatbot. Koncept, UX, design og kode, skrevet sammen med Claude. <a href="/cases/#lyng">Se casen her</a>.' },
     { q: 'Hvilke værktøjer bruger du?', a: 'Figma til wireframes og prototyper, InDesign og Illustrator til tryk og layout, og HTML, CSS og JavaScript til web.' },
-    { q: 'Har du selv kodet siden?', a: 'Ikke alene 😄 Indhold, design og idéer er mine, men koden er skrevet sammen med Claude, en AI-assistent. Prikken i logoet fik også øjne på den måde. <a href="#kontakt">Se samtalen nederst på siden</a>.' },
-    { q: 'Kan jeg se dit CV?', a: 'Selvfølgelig! <a href="pdf/CV-Sinan-Polat.pdf" target="_blank" rel="noopener">Åbn mit CV her</a> eller <a href="pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf">download det som PDF</a>.' },
+    { q: 'Har du selv kodet siden?', a: 'Ikke alene 😄 Indhold, design og idéer er mine, men koden er skrevet sammen med Claude, en AI-assistent. Prikken i logoet fik også øjne på den måde. <a href="/om/#bag-om-siden">Se samtalen her</a>.' },
+    { q: 'Kan jeg se dit CV?', a: 'Selvfølgelig! <a href="/pdf/CV-Sinan-Polat.pdf" target="_blank" rel="noopener">Åbn mit CV her</a> eller <a href="/pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf">download det som PDF</a>.' },
     { q: 'Hvordan kontakter jeg dig?', a: 'Skriv til <a href="mailto:sinanp2020@hotmail.com">sinanp2020@hotmail.com</a> eller ring på <a href="tel:+4550584245">5058 4245</a>. Jeg svarer hurtigt 😊' }
   ];
   const botBtn = $('#botBtn'), botPanel = $('#botPanel'), log = $('.bot-log'), chips = $('.bot-chips');
@@ -377,4 +377,7 @@
   /* ---------- Hilsen til nysgerrige udviklere ---------- */
   console.log('%cHej udvikler 👋', 'font:600 20px Georgia;color:#E9532B');
   console.log('Denne side er lavet af Sinan Polat i HTML, CSS og vanilla JavaScript.\nSkriv til sinanp2020@hotmail.com');
+  /* ---------- Filter fra adressen (fx /materialer/#tryk) ---------- */
+  const hashFilter = location.hash.slice(1);
+  if (hashFilter) { const fb = $(`.filters button[data-filter="${hashFilter}"]`); if (fb) fb.click(); }
 })();

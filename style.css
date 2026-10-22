@@ -751,3 +751,59 @@ p{margin:0 0 1em;max-width:66ch}
   .sv-img img{object-position:left top}
 }
 @media (max-width:380px){.hero .status{font-size:.6rem;letter-spacing:.04em;padding-left:10px;padding-right:10px}}
+
+/* ---------- v14: egne sider, ny footer ---------- */
+.page-top{padding-top:clamp(28px,4vw,56px)}
+.page-head h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;margin:0}
+.section-head.row .page-head,.work-section h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;margin:0}
+.motion-section h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;margin:0}
+.cases .concept + .concept{margin-top:clamp(28px,4vw,48px)}
+.nf{min-height:50vh}
+
+/* Om-siden: "Bag om siden" i mørk boks */
+.colo-host{background:#15171C;color:#F5F2EC;border-radius:28px;padding:clamp(24px,4vw,48px)}
+.colo-host .colophon{margin:0;padding:0;border:0}
+
+/* Footer */
+.contact.pro{margin-top:clamp(56px,8vw,96px);padding:clamp(48px,6vw,80px) 24px 28px;border-radius:28px 28px 0 0}
+.contact.pro .contact-inner{max-width:var(--max);margin:0 auto}
+.ct-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.contact.pro .eyebrow{color:#FF7A50;margin-bottom:14px}
+.ct-title{font:600 clamp(2rem,4.2vw,3.3rem)/1.05 var(--serif);color:#F5F2EC;margin:0;letter-spacing:-.01em}
+.ct-title em{color:#FF7A50}
+.ct-lead{color:#B9BDC6;margin:16px 0 24px;max-width:44ch}
+.ct-cv{padding:14px 22px}
+.ct-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.12)}
+.ct-list li{border-bottom:1px solid rgba(255,255,255,.12)}
+.ct-list a,.ct-list button{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:14px;width:100%;padding:20px 4px;background:none;border:0;color:#F5F2EC;text-decoration:none;font:inherit;text-align:left;cursor:pointer;transition:color .2s,padding .3s var(--ease)}
+.ct-k{font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.09em;color:#8A8F99}
+.ct-v{font-weight:600;font-size:1.06rem;overflow-wrap:anywhere}
+.ct-a{font-size:.85rem;font-weight:600;color:#FF7A50;border:1px solid rgba(255,122,80,.45);border-radius:999px;padding:5px 12px;white-space:nowrap;transition:background .2s,color .2s}
+.ct-list a:hover,.ct-list button:hover{padding-left:10px}
+.ct-list a:hover .ct-a,.ct-list button:hover .ct-a{background:#FF7A50;color:#15171C}
+.ct-list a:focus-visible,.ct-list button:focus-visible{outline:2px solid #FF7A50;outline-offset:2px;border-radius:8px}
+.ct-a-touch{display:none}
+@media (pointer:coarse){.ct-a-fine{display:none}.ct-a-touch{display:inline}}
+.ct-bottom{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:clamp(36px,5vw,56px);padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.85rem;color:#8A8F99}
+.ct-bottom .foot-brand{font:600 1.15rem var(--serif);color:#F5F2EC;text-decoration:none}
+.ct-bottom .foot-brand i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#FF7A50;margin-left:3px}
+.ct-note{flex:1;min-width:220px}
+.ct-link{color:#B9BDC6;text-decoration:underline;text-underline-offset:3px}
+.ct-link:hover{color:#FF7A50}
+@media (prefers-reduced-motion:reduce){.ct-list a,.ct-list button{transition:none}.ct-list a:hover,.ct-list button:hover{padding-left:4px}}
+@media (max-width:860px){.ct-grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:640px){
+  .contact.pro{padding:40px 20px calc(22px + env(safe-area-inset-bottom));border-radius:22px 22px 0 0}
+  .ct-title{font-size:2rem}
+  .ct-lead{margin:12px 0 18px;font-size:1rem}
+  .ct-cv{width:100%;justify-content:center;min-height:50px}
+  .ct-list a,.ct-list button{grid-template-columns:1fr auto;gap:2px 12px;padding:15px 2px;min-height:56px}
+  .ct-k{grid-column:1;grid-row:1}
+  .ct-v{grid-column:1;grid-row:2;font-size:1rem}
+  .ct-a{grid-column:2;grid-row:1/3}
+  .ct-bottom{gap:6px 14px;margin-top:28px}
+  .ct-note{flex-basis:100%;order:3;min-width:0}
+}
+.page-head .lead{margin-top:.8em}
+.page-head{margin-bottom:clamp(24px,3vw,40px)}
+@media (min-width:641px){.ct-bottom{padding-right:170px}}
