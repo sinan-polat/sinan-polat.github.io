@@ -677,3 +677,32 @@ p{margin:0 0 1em;max-width:66ch}
 .more-about-link .arr{grid-column:2;grid-row:1/3;font-size:1.8rem;color:var(--accent);transition:transform .3s}
 .more-about-link:hover .arr{transform:translateX(5px)}
 .about-h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:.45em}
+
+/* ---------- v12: mindre luft, kompakt kontakt, kolofon som fold-ud, smalle telefoner ---------- */
+.section{padding-top:clamp(48px,6vw,84px)}
+.contact{margin-top:clamp(56px,8vw,96px);padding:clamp(48px,7vw,84px) 24px 32px}
+.contact-actions{margin:28px 0 36px}
+.colo-fold{border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin:0 0 8px}
+.colo-fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:18px 0;font:600 1.05rem var(--sans);color:#E4E1DB}
+.colo-fold summary::-webkit-details-marker{display:none}
+.colo-fold summary .colo-label{margin:0}
+.colo-fold .colo-plus{margin-left:auto;font:400 1.5rem/1 var(--sans);color:#FF7A50;transition:transform .3s var(--ease)}
+.colo-fold[open] .colo-plus{transform:rotate(45deg)}
+.colo-fold summary:hover{color:#FF7A50}
+.colo-fold summary:focus-visible{outline:2px solid #FF7A50;outline-offset:4px;border-radius:6px}
+.colo-fold .colophon{margin-top:4px;padding-top:8px;border-top:0}
+@media (max-width:640px){
+  .section{padding-top:40px}
+  .contact{padding:40px 20px calc(24px + env(safe-area-inset-bottom));border-radius:24px 24px 0 0}
+  .contact .big{font-size:clamp(2rem,9vw,2.6rem)}
+  .contact-actions{margin:22px 0 26px}
+  .contact-actions .button{min-height:50px}
+  .colo-fold summary{font-size:.98rem;padding:16px 0}
+}
+@media (max-width:380px){
+  .site-header{gap:8px}
+  .brand{font-size:1.12rem}
+  .header-tools{gap:6px}
+  .header-tools .icon-btn{width:38px;height:38px}
+  .cv-link{height:38px;padding:0 12px}
+}

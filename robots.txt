@@ -1,2 +1,11 @@
+# Portfolio til arbejdsgivere: skal ikke på Google, men link-previews på LinkedIn, Messenger osv. må gerne virke.
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: LinkedInBot
+User-agent: Twitterbot
+User-agent: Slackbot
+User-agent: WhatsApp
+Allow: /
+
 User-agent: *
 Disallow: /

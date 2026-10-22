@@ -315,6 +315,7 @@
   const showToast = msg => { toast.textContent = msg; toast.classList.add('show'); clearTimeout(showToast.t); showToast.t = setTimeout(() => toast.classList.remove('show'), 2200); };
   $('#copyMail').addEventListener('click', async e => {
     const mail = e.currentTarget.dataset.mail;
+    if (matchMedia('(pointer: coarse)').matches) { location.href = 'mailto:' + mail; return; } // telefon: åbn mail med ét tryk
     try { await navigator.clipboard.writeText(mail); showToast('E-mail kopieret ✓'); }
     catch (err) { location.href = 'mailto:' + mail; }
   });
