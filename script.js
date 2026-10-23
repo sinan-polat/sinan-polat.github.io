@@ -74,7 +74,7 @@
   const words = ['offentlige data', 'valgresultater', 'velfærdssystemer', 'regler og politikker', 'datablade'];
   const word = $('.rotator-word');
   let wi = 0;
-  if (!reduceMotion) setInterval(() => {
+  if (word && !reduceMotion) setInterval(() => {
     word.classList.add('out');
     setTimeout(() => {
       wi = (wi + 1) % words.length;
