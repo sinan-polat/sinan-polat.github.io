@@ -3,6 +3,9 @@
    ========================================================= */
 (() => {
   'use strict';
+  /* Sproget styres af <html lang>: dansk som standard, engelsk på /en/ */
+  const EN = document.documentElement.lang === 'en';
+  const T = (da, en) => EN ? en : da;
   document.documentElement.classList.add('js');
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -71,7 +74,7 @@
   });
 
   /* ---------- Roterende ord i overskriften ---------- */
-  const words = ['offentlige data', 'valgresultater', 'velfærdssystemer', 'regler og politikker', 'datablade'];
+  const words = EN ? ['public data', 'election results', 'welfare systems', 'rules and policies', 'data sheets'] : ['offentlige data', 'valgresultater', 'velfærdssystemer', 'regler og politikker', 'datablade'];
   const word = $('.rotator-word');
   let wi = 0;
   if (word && !reduceMotion) setInterval(() => {
@@ -216,7 +219,7 @@
     pre.onload = () => { vImg.src = src; vImg.classList.remove('loading'); };
     pre.src = src;
     if (vPages[vIdx + 1]) new Image().src = vPages[vIdx + 1]; // forudindlæs næste side
-    $('.viewer-count').textContent = vPages.length > 1 ? `Side ${vIdx + 1} af ${vPages.length}` : '';
+    $('.viewer-count').textContent = vPages.length > 1 ? T(`Side ${vIdx + 1} af ${vPages.length}`, `Page ${vIdx + 1} of ${vPages.length}`) : '';
     $$('button', vThumbs).forEach((b, j) => b.classList.toggle('on', j === vIdx));
     const active = $$('button', vThumbs)[vIdx];
     if (active) active.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -237,10 +240,10 @@
     const file = pdf || svg || vPages[0];
     vOpen.href = file; vDown.href = file;
     vDown.setAttribute('download', file.split('/').pop());
-    vOpen.textContent = pdf ? 'Åbn PDF ↗' : 'Åbn original ↗';
+    vOpen.textContent = pdf ? T('Åbn PDF ↗', 'Open PDF ↗') : T('Åbn original ↗', 'Open original ↗');
     vDown.hidden = false;
-    if (card.dataset.link) { vOpen.href = card.dataset.link; vOpen.textContent = card.dataset.linkLabel || 'Åbn ↗'; vDown.hidden = true; }
-    vThumbs.innerHTML = vPages.length > 1 ? vPages.map((p, i) => `<button type="button" aria-label="Gå til side ${i + 1}"><img src="${p}" alt="" loading="lazy"></button>`).join('') : '';
+    if (card.dataset.link) { vOpen.href = card.dataset.link; vOpen.textContent = card.dataset.linkLabel || T('Åbn ↗', 'Open ↗'); vDown.hidden = true; }
+    vThumbs.innerHTML = vPages.length > 1 ? vPages.map((p, i) => `<button type="button" aria-label="${T('Gå til side', 'Go to page')} ${i + 1}"><img src="${p}" alt="" loading="lazy"></button>`).join('') : '';
     $$('button', vThumbs).forEach((b, i) => b.addEventListener('click', () => showPage(i)));
     $$('.vnav', viewer).forEach(b => b.hidden = vPages.length < 2);
     lastFocus = document.activeElement;
@@ -284,7 +287,7 @@
 
   /* ---------- Motion: korte videoer spiller, når de er i billedet ---------- */
   const mvids = $$('.mvid');
-  const setSound = (btn, on) => { btn.setAttribute('aria-pressed', on); btn.setAttribute('aria-label', on ? 'Slå lyd fra' : 'Slå lyd til'); };
+  const setSound = (btn, on) => { btn.setAttribute('aria-pressed', on); btn.setAttribute('aria-label', on ? T('Slå lyd fra', 'Mute') : T('Slå lyd til', 'Unmute')); };
   // kun én video ad gangen må have lyd
   const quietOthers = keep => mvids.forEach(v => {
     if (v === keep) return;
@@ -316,14 +319,23 @@
   $('#copyMail').addEventListener('click', async e => {
     const mail = e.currentTarget.dataset.mail;
     if (matchMedia('(pointer: coarse)').matches) { location.href = 'mailto:' + mail; return; } // telefon: åbn mail med ét tryk
-    try { await navigator.clipboard.writeText(mail); showToast('E-mail kopieret ✓'); }
+    try { await navigator.clipboard.writeText(mail); showToast(T('E-mail kopieret ✓', 'Email copied ✓')); }
     catch (err) { location.href = 'mailto:' + mail; }
   });
 
   /* ---------- Mini-bot: "Spørg Sinan" ---------- */
-  const qa = [
+  const qaEN = [
+    { q: 'Who are you?', a: 'I\'m Sinan Polat, a multimedia designer finishing my bachelor\'s degree in Digital Concept Development (December 2026). Since 2024 I\'ve worked as a student assistant and intern in the communications department at KOMBIT, the joint IT organisation of Denmark\'s 98 municipalities.' },
+    { q: 'What are you looking for?', a: 'A full-time role in UX and user research, ideally where complex content or data has to become useful for real people. I\'m available from January 2027.' },
+    { q: 'What is your bachelor project about?', a: 'Valg.dk, the official Danish election results site, in collaboration with KOMBIT. I researched how citizens, journalists, analysts and municipal staff find election data, and designed a new front page that starts with the question "How did [election] go in [area]?". After a pilot test I revised the prototype six times. <a href="/cases/#valg">See the case (in Danish)</a>.' },
+    { q: 'Do you design websites too?', a: 'Yes. I\'m building a new website for ProCAD, a CAD draughtsman who makes drawings for metalworking: send your file, get a fixed price. Concept, UX and design are mine; the code is written together with Claude. <a href="/cases/#procad">See the case (in Danish)</a>.' },
+    { q: 'Which tools do you use?', a: 'Figma for wireframes and prototypes, InDesign and Illustrator for print and layout, and HTML, CSS and JavaScript for the web.' },
+    { q: 'Can I see your CV?', a: 'Of course! <a href="/pdf/CV-Sinan-Polat-EN.pdf" target="_blank" rel="noopener">Open my CV</a> or <a href="/pdf/CV-Sinan-Polat-EN.pdf" download="CV-Sinan-Polat-EN.pdf">download it as a PDF</a>.' },
+    { q: 'How do I reach you?', a: 'Email <a href="mailto:sinanp2020@hotmail.com">sinanp2020@hotmail.com</a> or call <a href="tel:+4550584245">+45 5058 4245</a>. I reply quickly 😊' }
+  ];
+  const qaDA = [
     { q: 'Hvem er du?', a: 'Jeg hedder Sinan Polat og er multimediedesigner. Jeg er ved at afslutte min professionsbachelor i Digital Konceptudvikling og har arbejdet som studentermedhjælper og praktikant i KOMBITs kommunikationsafdeling.' },
-    { q: 'Hvad søger du?', a: 'En rolle inden for UX og brugerresearch, gerne hvor komplekst indhold eller data skal gøres brugbart for rigtige mennesker. Det offentlige og B2B-tunge domæner er mit hjemmebane.' },
+    { q: 'Hvad søger du?', a: 'En fuldtidsstilling inden for UX og brugerresearch, gerne hvor komplekst indhold eller data skal gøres brugbart for rigtige mennesker. Jeg er ledig fra januar 2027.' },
     { q: 'Hvad handler dit bachelorprojekt om?', a: 'Valg.dk som dataformidlingsplatform, i samarbejde med KOMBIT. Jeg har undersøgt, hvordan borgere, journalister, analytikere og kommunale medarbejdere finder valgdata. Den nye forside starter med spørgsmålet »Hvordan gik [valg] i [område]?«, og prototypen er rettet seks gange efter en pilottest. <a href="/cases/#valg">Se det her</a>.' },
     { q: 'Hvad lavede du i praktikken?', a: 'Jeg lavede en WSJF-præsentation, der blev brugt i workshops med produktejere, og en skabelon til brugerevents i konceptet Brugerfokus. Senest har jeg lavet et kampagnekoncept til KOMBIT på Folkemødet 2026. <a href="/materialer/">Se materialerne her</a>.' },
     { q: 'Laver du også hjemmesider?', a: 'Ja. Jeg er ved at lave en ny hjemmeside til ProCAD, en CAD-tegner, der laver tegninger til metalbearbejdning. Man sender sin fil og får en fast pris. Koncept, UX og design er mine, koden er skrevet sammen med Claude. <a href="/cases/#procad">Se casen her</a>.' },
@@ -332,6 +344,7 @@
     { q: 'Kan jeg se dit CV?', a: 'Selvfølgelig! <a href="/pdf/CV-Sinan-Polat.pdf" target="_blank" rel="noopener">Åbn mit CV her</a> eller <a href="/pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf">download det som PDF</a>.' },
     { q: 'Hvordan kontakter jeg dig?', a: 'Skriv til <a href="mailto:sinanp2020@hotmail.com">sinanp2020@hotmail.com</a> eller ring på <a href="tel:+4550584245">5058 4245</a>. Jeg svarer hurtigt 😊' }
   ];
+  const qa = EN ? qaEN : qaDA;
   const botBtn = $('#botBtn'), botPanel = $('#botPanel'), log = $('.bot-log'), chips = $('.bot-chips');
   const asked = new Set();
   const say = (html, who) => {
@@ -347,7 +360,7 @@
       const b = document.createElement('button'); b.type = 'button'; b.textContent = x.q;
       b.addEventListener('click', () => ask(i)); chips.appendChild(b);
     });
-    if (!chips.children.length) chips.innerHTML = '<span class="msg him" style="margin:0">Det var alle mine svar. Skriv endelig til mig! ✉️</span>';
+    if (!chips.children.length) chips.innerHTML = T('<span class="msg him" style="margin:0">Det var alle mine svar. Skriv endelig til mig! ✉️</span>', '<span class="msg him" style="margin:0">That\'s all my answers. Feel free to write to me! ✉️</span>');
   };
   const ask = i => {
     asked.add(i); chips.innerHTML = '';
@@ -359,7 +372,7 @@
     botPanel.hidden = !open;
     botBtn.setAttribute('aria-expanded', open);
     botBtn.classList.toggle('hidden', open);
-    if (open && !log.children.length) { say('Hej! 👋 Jeg er Sinans lille bot. Hvad vil du gerne vide?', 'him'); renderChips(); }
+    if (open && !log.children.length) { say(T('Hej! 👋 Jeg er Sinans lille bot. Hvad vil du gerne vide?', 'Hi! 👋 I\'m Sinan\'s little bot. What would you like to know?'), 'him'); renderChips(); }
     if (open) setTimeout(() => (chips.querySelector('button') || botPanel).focus?.(), 50);
   };
   botBtn.addEventListener('click', () => toggleBot(true));
