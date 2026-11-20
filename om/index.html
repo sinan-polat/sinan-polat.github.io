@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="/style.css?v=14">
-<link rel="stylesheet" href="/dot.css?v=4">
+<link rel="stylesheet" href="/style.css?v=15">
+<link rel="stylesheet" href="/dot.css?v=5">
 <script>
   /* Sæt tema før siden tegnes, så den ikke blinker */
   (function(){try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
@@ -147,27 +147,56 @@
 <section class="colophon" aria-labelledby="coloTitle">
       <div class="colo-text">
         <p class="colo-label">Bag om siden</p>
-        <h3 class="colo-title" id="coloTitle">Sådan er siden lavet</h3>
+        <h2 class="colo-title" id="coloTitle">Sådan er siden lavet</h2>
         <p>Indhold, design og idéer er mine. Koden er skrevet sammen med <b>Claude</b>, en AI-assistent, ud fra mine prompts.</p>
-        <p>En god prompt er som en god brief: <b>rolle, mål, krav og hvad der skal leveres</b>. Her er den, der gav prikken i logoet øjne.</p>
-        <ul class="colo-facts"><li>HTML · CSS · JavaScript</li><li>Ingen frameworks</li><li>Respekterer "reducer bevægelse"</li></ul>
+        <p>En god prompt er en god brief. Jeg giver <b>kontekst</b>, et <b>mål</b> med en grund, klare <b>krav</b> og et billede af, hvornår opgaven er <b>færdig</b>. Og jeg beder Claude om at spørge, før den gætter.</p>
+        <p>Her er tre af mine prompts: prikken i logoet, Valg.dk-prototypen og den seneste gennemgang af siden.</p>
+        <ul class="colo-facts"><li>Kontekst før opgave</li><li>»Færdig, når …«</li><li>Spørg, før du gætter</li></ul>
       </div>
       <div class="colo-window">
         <div class="colo-bar">
           <span class="colo-lights" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="colo-file">prompt.md → dot.js</span>
-          <button class="colo-replay" type="button" aria-label="Afspil samtalen igen"><span aria-hidden="true">↻</span> Afspil igen</button>
+          <div class="colo-tabs" role="tablist" aria-label="Vælg en prompt"><button class="colo-tab" type="button" role="tab" id="ctab-0" aria-controls="cpanel-0" aria-selected="true" data-file="prompt.md → dot.js">dot.js</button><button class="colo-tab" type="button" role="tab" id="ctab-1" aria-controls="cpanel-1" aria-selected="false" tabindex="-1" data-file="figma → valg-version-b">valg.dk</button><button class="colo-tab" type="button" role="tab" id="ctab-2" aria-controls="cpanel-2" aria-selected="false" tabindex="-1" data-file="prompt.md → hele siden">gennemgang</button></div>
+          <button class="colo-replay" type="button" aria-label="Afspil samtalen igen"><span aria-hidden="true">↻</span><span class="colo-replay-txt"> Afspil igen</span></button>
         </div>
-        <div class="colo-chat" role="group" aria-label="Eksempel på en prompt fra Sinan til Claude og Claudes svar">
+        <p class="colo-file" aria-hidden="true">prompt.md → dot.js</p>
+        <div class="colo-stage">
+        <div class="colo-chat" role="tabpanel" id="cpanel-0" aria-labelledby="ctab-0">
           <div class="cmsg me"><span class="who">Sinan · prompt</span>
             <div class="cbody cprompt">
-              <p><b>Rolle</b><span>Du er frontend-udvikler på min portfolio i HTML, CSS og JavaScript.</span></p>
-              <p><b>Mål</b><span>Gør punktummet i mit logo til en lille figur, der viser, hvor man er på siden.</span></p>
-              <p><b>Krav</b><span>Ingen frameworks. Brug mine farver og fonte. Respektér "reducer bevægelse". Ændr så lidt som muligt i mine filer.</span></p>
-              <p><b>Lever</b><span>dot.js og dot.css, plus hvordan jeg tester det lokalt.</span></p>
+              <p><b>Kontekst</b><span>Min portfolio er skrevet i ren HTML, CSS og JavaScript uden build-trin. Logoet er »Sinan Polat« med en rød prik. Siden skal overbevise UX-arbejdsgivere på 30 sekunder.</span></p>
+              <p><b>Mål</b><span>Gør prikken til en lille figur med øjne, der følger med hen til det menupunkt, man er på. Den skal give siden personlighed uden at tage opmærksomheden fra mit arbejde.</span></p>
+              <p><b>Krav</b><span>Ingen frameworks. Brug mine CSS-variabler. Animér kun transform og opacity. Prikken står stille ved »reducer bevægelse«. Ændr så lidt som muligt i mine filer.</span></p>
+              <p><b>Færdig når</b><span>Den virker i lyst og mørkt tema, på mobil og med tastatur, uden fejl i konsollen.</span></p>
+              <p><b>Lever</b><span>dot.js og dot.css, linjerne til index.html og hvordan jeg tester lokalt. Spørg, før du gætter.</span></p>
             </div>
           </div>
-          <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Klart! To nye filer, to linjer i din index.html, og prikken står stille for dem, der har slået animationer fra. Her er den</span><span class="cdot" aria-hidden="true"></span></p></div>
+          <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Klart. To nye filer og to linjer i din index.html. Testet i lyst og mørkt tema, på mobil og med tastatur, og prikken står stille, når animationer er slået fra. Her er den</span><span class="cdot" aria-hidden="true"></span></p></div>
+        </div>
+        <div class="colo-chat" role="tabpanel" id="cpanel-1" aria-labelledby="ctab-1" hidden>
+          <div class="cmsg me"><span class="who">Sinan · prompt</span>
+            <div class="cbody cprompt">
+              <p><b>Kontekst</b><span>Jeg skriver bachelor om Valg.dk sammen med KOMBIT. Vedhæftet: min Figma-prototype af version B, mine designprincipper P1–P7 og fundene fra pilottesten.</span></p>
+              <p><b>Mål</b><span>Byg version B som en klikbar webprototype, så borgere, journalister og analytikere kan teste den i en browser i december.</span></p>
+              <p><b>Krav</b><span>Følg mit Figma-design. Foreslå ændringer, men lav dem ikke uden at spørge. Rigtige valgtal fra Danmarks Statistik, opdigtede kandidater tydeligt markeret. WCAG 2.1 AA, og hver visning skal kunne deles som link.</span></p>
+              <p><b>Færdig når</b><span>En testperson kan løse opgave T1–T3 uden hjælp, og hver ændring kan spores til et fund fra pilottesten.</span></p>
+              <p><b>Lever</b><span>Én statisk side til GitHub Pages og en liste over, hvor du afveg fra Figma, og hvorfor.</span></p>
+            </div>
+          </div>
+          <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Forstået. Ét spørgsmål, før jeg går i gang: skal kortet ved kommunalvalg vise kommuner eller afstemningsområder? Det afgør, hvor meget data siden skal hente</span><span class="cdot" aria-hidden="true"></span></p></div>
+        </div>
+        <div class="colo-chat" role="tabpanel" id="cpanel-2" aria-labelledby="ctab-2" hidden>
+          <div class="cmsg me"><span class="who">Sinan · prompt</span>
+            <div class="cbody cprompt">
+              <p><b>Kontekst</b><span>Min portfolio skal få arbejdsgivere inden for UX til at ringe, og de giver den 30 sekunder. Vedhæftet: siden, mit CV og fem design-skills, du skal bruge som tjekliste.</span></p>
+              <p><b>Mål</b><span>Gennemgå siden, som en kritisk UX-lead ville, og ret det, der koster mig et opkald.</span></p>
+              <p><b>Krav</b><span>Prioritér efter betydning for den besøgende, ikke efter hvad der er nemt. Bevar mit udtryk og min tone. Spørg, før du ændrer noget, der står om mig. Vær ærlig om, at siden er lavet med AI.</span></p>
+              <p><b>Færdig når</b><span>Alle sider er testet i en rigtig browser på mobil og desktop, i lyst og mørkt tema, og hvert fund er rettet eller fravalgt med en begrundelse.</span></p>
+              <p><b>Lever</b><span>De rettede filer, en kort liste med hvad og hvorfor, og git-kommandoerne. Jeg pusher selv.</span></p>
+            </div>
+          </div>
+          <div class="cmsg ai"><span class="who">Claude</span><p class="cbody"><span class="ctext">Alle fem sider er testet på mobil og desktop i lyst og mørkt tema. Her er, hvad jeg har rettet, hvad jeg har ladet være, og hvorfor</span><span class="cdot" aria-hidden="true"></span></p></div>
+        </div>
         </div>
       </div>
     </section>
@@ -247,6 +276,6 @@
 
 <div class="toast" role="status" aria-live="polite"></div>
 <script src="/script.js?v=15" defer></script>
-<script src="/dot.js?v=3" defer></script>
+<script src="/dot.js?v=4" defer></script>
 </body>
 </html>

@@ -166,39 +166,59 @@
     if (document.fonts) document.fonts.ready.then(() => { if (header.classList.contains('has-navdot')) snap(); });
   }
 
-  /* ---------- 4. Kolofon: prompten, og punktummet der vågner ---------- */
-  const chat = $('.colo-chat');
-  if (chat) {
-    const [me, ai] = $$('.cmsg', chat);
-    const lines = $$('.cprompt p > span', me).map(el => ({ el, text: el.textContent }));
-    const labels = $$('.cprompt p > b', me);
-    const txt = $('.ctext', ai), cdot = $('.cdot', ai), aiWords = txt.textContent.split(' ');
-    cdot.innerHTML = EYES;
+  /* ---------- 4. Kolofon: tre prompts, og punktummet der vågner ---------- */
+  const win = $('.colo-window');
+  if (win) {
+    const tabs = $$('.colo-tab', win), panels = $$('.colo-chat', win), file = $('.colo-file', win);
     let timers = [];
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    const chats = panels.map(chat => {
+      const [me, ai] = $$('.cmsg', chat);
+      const lines = $$('.cprompt p > span', me).map(el => ({ el, text: el.textContent }));
+      const labels = $$('.cprompt p > b', me);
+      const txt = $('.ctext', ai), cdot = $('.cdot', ai);
+      cdot.innerHTML = EYES;
+      return { chat, me, ai, lines, labels, txt, cdot, words: txt.textContent.split(' '), full: txt.textContent };
+    });
+    let cur = 0;
+    // resten af teksten står usynligt, så boblen har sin endelige størrelse fra start og intet hopper
+    const esc = x => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const ghost = x => '<span class="cghost">' + esc(x) + '</span>';
+    const type = (el, text, k) => { el.innerHTML = esc(text.slice(0, k)) + (k < text.length ? ghost(text.slice(k)) : ''); };
+    const reset = () => { timers.forEach(clearTimeout); timers = []; };
+    // vis alt med det samme (reducer bevægelse eller før animationen er nået)
+    const still = c => {
+      c.chat.classList.remove('armed');
+      c.lines.forEach(l => { l.el.textContent = l.text; });
+      c.txt.textContent = c.full;
+    };
     function play() {
-      timers.forEach(clearTimeout); timers = [];
+      reset();
+      const { chat, me, ai, lines, labels, txt, cdot, words } = chats[cur];
+      if (reduce) { still(chats[cur]); return; }
       chat.classList.add('armed');
       [me, ai].forEach(m => m.classList.remove('show'));
       cdot.classList.remove('awake', 'pop'); lookAt(cdot, 0, 0);
-      lines.forEach(l => { l.el.textContent = ''; }); labels.forEach(b => b.classList.remove('on'));
-      txt.textContent = '';
-      // prompten skrives linje for linje: rolle, mål, krav, lever
-      at(150, () => me.classList.add('show'));
-      let t = 300;
+      lines.forEach(l => type(l.el, l.text, 0)); labels.forEach(b => b.classList.remove('on'));
+      type(txt, chats[cur].full, 0);
+      // prompten skrives linje for linje: kontekst, mål, krav, færdig når, lever
+      at(120, () => me.classList.add('show'));
+      let t = 260;
+      const cps = 7; // ms pr. tegn
       lines.forEach((l, i) => {
         at(t, () => labels[i].classList.add('on'));
-        [...l.text].forEach((ch, k) => at(t + 120 + k * 13, () => { l.el.textContent += ch; }));
-        t += 120 + l.text.length * 13 + 220;
+        const n = l.text.length, step = 3; // tre tegn ad gangen holder antallet af timere nede
+        for (let k = step; k < n + step; k += step) at(t + 90 + k * cps, () => type(l.el, l.text, k));
+        t += 90 + n * cps + 160;
       });
       // Claude tænker med tre hoppende prikker og svarer ord for ord
-      const t1 = t + 250;
-      at(t1, () => { ai.classList.add('show'); txt.innerHTML = '<span class="ctyping"><i></i><i></i><i></i></span>'; });
-      const t2 = t1 + 1300;
-      at(t2, () => { txt.textContent = ''; });
-      aiWords.forEach((w, i) => at(t2 + i * 70, () => { txt.textContent += (i ? ' ' : '') + w; }));
+      const t1 = t + 200;
+      at(t1, () => { ai.classList.add('show'); txt.innerHTML = '<span class="ctyping"><i></i><i></i><i></i></span>' + ghost(chats[cur].full); });
+      const t2 = t1 + 1100;
+      let shown = 0;
+      words.forEach((w, i) => { shown += (i ? 1 : 0) + w.length; const k = shown; at(t2 + i * 55, () => type(txt, chats[cur].full, k)); });
       // ... og punktummet vågner
-      const t3 = t2 + aiWords.length * 70 + 150;
+      const t3 = t2 + words.length * 55 + 150;
       at(t3, () => cdot.classList.add('pop'));
       at(t3 + 700, () => cdot.classList.add('awake'));
       at(t3 + 1050, () => lookAt(cdot, .7, -.9));            // kigger op på prompten
@@ -207,10 +227,30 @@
       at(t3 + 2450, () => hop(cdot, .8));
       at(t3 + 3600, () => { lookAt(cdot, 0, 0); cdot.classList.remove('awake'); });
     }
-    if (!reduce) {
-      new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { play(); obs.disconnect(); } }, { threshold: .4 }).observe(chat);
-      chat.addEventListener('click', play);
-      const replay = $('.colo-replay');
+    function select(i, focus) {
+      if (i === cur && !focus) return;
+      reset(); still(chats[cur]);
+      cur = (i + tabs.length) % tabs.length;
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === cur); t.tabIndex = j === cur ? 0 : -1; });
+      panels.forEach((p, j) => { p.hidden = j !== cur; });
+      if (file) file.textContent = tabs[cur].dataset.file;
+      if (focus) tabs[cur].focus();
+      play();
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); select(cur + 1, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); select(cur - 1, true); }
+        if (e.key === 'Home') { e.preventDefault(); select(0, true); }
+        if (e.key === 'End') { e.preventDefault(); select(tabs.length - 1, true); }
+      });
+    });
+    const replay = $('.colo-replay', win);
+    if (reduce) { chats.forEach(still); if (replay) replay.hidden = true; }
+    else {
+      new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { play(); obs.disconnect(); } }, { threshold: .35 }).observe(win);
+      panels.forEach(p => p.addEventListener('click', play));
       if (replay) replay.addEventListener('click', play);
     }
   }

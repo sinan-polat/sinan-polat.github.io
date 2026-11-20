@@ -328,7 +328,7 @@
     { q: 'Hvad lavede du i praktikken?', a: 'Jeg lavede en WSJF-præsentation, der blev brugt i workshops med produktejere, og en skabelon til brugerevents i konceptet Brugerfokus. Senest har jeg lavet et kampagnekoncept til KOMBIT på Folkemødet 2026. <a href="/materialer/">Se materialerne her</a>.' },
     { q: 'Laver du også hjemmesider?', a: 'Ja. Jeg er ved at lave en ny hjemmeside til ProCAD, en CAD-tegner, der laver tegninger til metalbearbejdning. Man sender sin fil og får en fast pris. Koncept, UX og design er mine, koden er skrevet sammen med Claude. <a href="/cases/#procad">Se casen her</a>.' },
     { q: 'Hvilke værktøjer bruger du?', a: 'Figma til wireframes og prototyper, InDesign og Illustrator til tryk og layout, og HTML, CSS og JavaScript til web.' },
-    { q: 'Har du selv kodet siden?', a: 'Ikke alene 😄 Indhold, design og idéer er mine, men koden er skrevet sammen med Claude, en AI-assistent. Prikken i logoet fik også øjne på den måde. <a href="/om/#bag-om-siden">Se samtalen her</a>.' },
+    { q: 'Har du selv kodet siden?', a: 'Ikke alene 😄 Indhold, design og idéer er mine, men koden er skrevet sammen med Claude, en AI-assistent. Prikken i logoet fik også øjne på den måde. <a href="/om/#bag-om-siden">Se mine prompts her</a>.' },
     { q: 'Kan jeg se dit CV?', a: 'Selvfølgelig! <a href="/pdf/CV-Sinan-Polat.pdf" target="_blank" rel="noopener">Åbn mit CV her</a> eller <a href="/pdf/CV-Sinan-Polat.pdf" download="CV-Sinan-Polat.pdf">download det som PDF</a>.' },
     { q: 'Hvordan kontakter jeg dig?', a: 'Skriv til <a href="mailto:sinanp2020@hotmail.com">sinanp2020@hotmail.com</a> eller ring på <a href="tel:+4550584245">5058 4245</a>. Jeg svarer hurtigt 😊' }
   ];

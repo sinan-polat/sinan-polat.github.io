@@ -75,7 +75,7 @@ p{margin:0 0 1em;max-width:66ch}
 .button.ghost{background:transparent;color:var(--ink)}
 .button.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .button.light{background:#F5F2EC;color:#15171C;border-color:#F5F2EC}
-.button.light:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.button.light:hover{background:var(--accent);border-color:var(--accent);color:#15171C}
 .button.ghost-light{background:transparent;color:#F5F2EC;border-color:rgba(245,242,236,.35)}
 .button.ghost-light:hover{border-color:#F5F2EC;background:rgba(245,242,236,.08)}
 
@@ -230,7 +230,7 @@ p{margin:0 0 1em;max-width:66ch}
 .card-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
 .card-body h3{margin-bottom:8px}
 .card-body p{color:var(--muted);font-size:.95rem;margin-bottom:.7em}
-.card-body .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border-left:3px solid var(--accent);background:var(--tint);border-radius:0 8px 8px 0}
+.card-body .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);background:var(--tint);border-radius:10px}
 .card-body .role b{color:var(--accent);font-weight:600}
 .card-body .tags{margin-top:auto;padding-top:8px}
 
@@ -385,7 +385,7 @@ p{margin:0 0 1em;max-width:66ch}
 .timeline span:last-child{color:var(--muted);font-size:.88rem}
 .school{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .school-card .card-media{aspect-ratio:4/3}
-.grade{position:absolute;right:14px;top:12px;z-index:3;padding:6px 12px;border-radius:999px;background:var(--accent);color:#fff;font:500 .74rem var(--mono);letter-spacing:.04em;box-shadow:0 8px 20px -6px rgba(0,0,0,.35)}
+.grade{position:absolute;right:14px;top:12px;z-index:3;padding:6px 12px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:500 .74rem var(--mono);letter-spacing:.04em;box-shadow:0 8px 20px -6px rgba(0,0,0,.35)}
 .grade b{font:700 1rem var(--serif);margin-left:3px}
 .mini-list{list-style:none;padding:0;margin:0 0 .6em;display:grid;gap:8px}
 .mini-list li{font-size:.9rem;color:var(--muted);padding-left:14px;position:relative}
@@ -430,7 +430,7 @@ p{margin:0 0 1em;max-width:66ch}
 .work.compact .card:not(.feature) .card-body{padding:12px 14px 15px}
 .work.compact .card:not(.feature) .card-body h3{font-size:.98rem;line-height:1.25;margin:0}
 .work.compact .card:not(.feature) .card-body > :not(h3){display:none}
-.work.compact .card:not(.feature) .badge{top:8px;left:8px;font-size:.62rem;padding:3px 8px}
+.work.compact .card:not(.feature) .badge{top:8px;left:8px;font-size:.7rem;padding:3px 8px}
 .work.compact .card:not(.feature){border-radius:14px}
 @media (max-width:980px){.work.compact{grid-template-columns:1fr 1fr}}
 .viewer-desc{margin:8px 0 0;max-width:78ch;font-size:.88rem;line-height:1.5;color:#B9BDC6}
@@ -459,7 +459,7 @@ p{margin:0 0 1em;max-width:66ch}
 .mbody h3{margin-bottom:8px}
 .mfeature .mbody h3{font-size:1.55rem;line-height:1.15}
 .mbody p{color:var(--muted);font-size:.95rem;margin-bottom:.7em}
-.mbody .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border-left:3px solid var(--accent);background:var(--tint);border-radius:0 8px 8px 0}
+.mbody .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);background:var(--tint);border-radius:10px}
 .mbody .role b{color:var(--accent);font-weight:600}
 .mbody .made{margin:auto 0 0;padding-top:6px;display:flex;align-items:center;gap:8px;font:500 .74rem var(--mono);letter-spacing:.02em;color:var(--muted)}
 .mbody .made::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
@@ -504,7 +504,7 @@ p{margin:0 0 1em;max-width:66ch}
 .case .card-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .case h3{font-size:1.3rem;line-height:1.2;margin-bottom:8px}
 .case .card-body p{color:var(--muted);font-size:.95rem;margin-bottom:.8em}
-.case .card-body .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border-left:3px solid var(--accent);background:var(--tint);border-radius:0 8px 8px 0}
+.case .card-body .role{color:var(--ink);font-size:.92rem;padding:10px 12px;border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);background:var(--tint);border-radius:10px}
 .case .card-body .role b{color:var(--accent);font-weight:600}
 .case .card-actions{margin-top:auto!important;padding-top:6px}
 .steps-label{font:500 .74rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:28px 0 0}
@@ -634,7 +634,7 @@ p{margin:0 0 1em;max-width:66ch}
   .case .card-body p{font-size:.92rem}
   .card-actions{gap:8px}
   .case .card-actions .button,.concept .card-actions .button{flex:1 1 auto;justify-content:center}
-  .browser-bar span,.mini-bar span{font-size:.68rem}
+  .browser-bar span,.mini-bar span{font-size:.72rem}
 
   /* Filtre som én vandret række, man kan swipe */
   .filters{flex-wrap:nowrap;overflow-x:auto;margin:0 -24px;padding:2px 24px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:calc(100% + 48px)}
@@ -807,3 +807,6 @@ p{margin:0 0 1em;max-width:66ch}
 .page-head .lead{margin-top:.8em}
 .page-head{margin-bottom:clamp(24px,3vw,40px)}
 @media (min-width:641px){.ct-bottom{padding-right:170px}}
+
+/* v15: skjult overskrift, så overskriftsniveauerne hænger sammen for skærmlæsere */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
