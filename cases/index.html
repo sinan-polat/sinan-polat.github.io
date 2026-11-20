@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cases – Sinan Polat</title>
-<meta name="description" content="To cases fra research til prototype: et nyt Valg.dk og en hjemmeside til Lyng Ventilation.">
+<meta name="description" content="To cases fra research til prototype: et nyt Valg.dk og en hjemmeside til CAD-tegneren ProCAD.">
 <!-- Portfolio til arbejdsgivere: skal IKKE findes på Google. Behold noindex. Den officielle side er sinanp.dk. -->
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Cases – Sinan Polat">
-<meta property="og:description" content="To cases fra research til prototype: et nyt Valg.dk og en hjemmeside til Lyng Ventilation.">
+<meta property="og:description" content="To cases fra research til prototype: et nyt Valg.dk og en hjemmeside til CAD-tegneren ProCAD.">
 <meta property="og:image" content="https://portfolio.sinanp.dk/img/og-share.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
@@ -65,48 +65,51 @@
     <div class="concept proto reveal" id="valg">
       <div class="concept-side">
         <p class="kicker">Bachelorprojekt · Webprototype</p>
-        <h3 class="proto-title">Et nyt Valg.dk, hvor man spørger i én sætning</h3>
-        <p class="proto-text">Fire brugergrupper deler i dag én indgang til Valg.dk. I den reviderede version er forsiden én sætning, man kan læse og ændre: <em>»Jeg vil se mandaterne i hele landet ved Kommunalvalg 2025«</em>. Svaret står lige under, kortet viser resultatet, og adressen kan deles som link.</p>
+        <h3 class="proto-title">Et nyt Valg.dk, der starter med spørgsmålet</h3>
+        <p class="proto-text">Fire brugergrupper deler i dag én indgang til Valg.dk. I version B er forsiden ét spørgsmål, man kan ændre: <em>»Hvordan gik Kommunalvalg 2025 i hele landet?«</em> Svaret står lige under i én sætning, med mandater og stemmer side om side og et kort, man kan zoome i.</p>
+        <p class="proto-text">Pilottesten 16. november viste, at version B var for tæt, og at søgefeltet ikke blev set. Derfor har jeg rettet prototypen seks gange: søgefeltet står ved overskriften, man kan sammenligne samme kommune på tværs af valg, og Hent data viser ét trin ad gangen.</p>
         <dl class="facts">
-          <div><dt>Min rolle</dt><dd>UX research, informationsarkitektur og Figma-prototype</dd></div>
-          <div><dt>Kode</dt><dd>Claude (AI) ud fra mit design</dd></div>
-          <div><dt>Udvikling</dt><dd>Version A: opgavebaserede indgange · Version B: sætningen</dd></div>
-          <div><dt>Status</dt><dd>Brugertest 11. nov. · afleveres 18. dec. 2026</dd></div>
+          <div><dt>Min rolle</dt><dd>UX research, spørgeskema (71 svar), informationsarkitektur og Figma-prototype</dd></div>
+          <div><dt>Kode</dt><dd>Claude (AI) ud fra mit Figma-design</dd></div>
+          <div><dt>Udvikling</dt><dd>Version A: opgavekort · Version B: spørgsmålet · 6 runder efter pilottesten</dd></div>
+          <div><dt>Status</dt><dd>Brugertest 1.–4. dec. · afleveres 18. dec. 2026</dd></div>
         </dl>
         <p class="card-actions">
           <a class="button small" href="/valg-version-b/" target="_blank" rel="noopener">Prøv version B ↗</a>
           <a class="button ghost small" href="/valg-version-a/" target="_blank" rel="noopener">Se version A ↗</a>
+          <button class="button ghost small" type="button" data-viewer data-slug="valg-proces" data-pages="7" data-title="Valg.dk: proces, pilottest og før og efter">Se processen</button>
         </p>
-        <p class="mock-note">I samarbejde med KOMBIT. Prototype, ikke det officielle Valg.dk. Alle tal er eksempeldata.</p>
+        <p class="mock-note">I samarbejde med KOMBIT. Prototype, ikke det officielle Valg.dk. Valgtal fra Danmarks Statistik, kandidater og afstemningsområder er opdigtede.</p>
       </div>
 
-      <a class="browser proto-shot" href="/valg-version-b/" target="_blank" rel="noopener" aria-label="Åbn version B af Valg.dk-prototypen i en ny fane">
+      <a class="browser proto-shot" href="/valg-version-b/#/?do=se&amp;omr=land&amp;valg=kv2025" target="_blank" rel="noopener" aria-label="Åbn version B af Valg.dk-prototypen i en ny fane">
         <div class="browser-bar"><i></i><i></i><i></i><span>portfolio.sinanp.dk/<b>valg-version-b</b></span></div>
         <div class="proto-frame">
-          <img src="/work/valg-prototype/version-b.jpg" alt="Version B af Valg.dk-prototypen: overskriften Hvordan gik valget?, sætningen Jeg vil se mandaterne i hele landet ved Kommunalvalg 2025, mandater pr. parti og et kort over Danmark" loading="lazy" width="1400" height="744">
+          <img src="/work/valg-prototype/version-b.jpg?v=2" alt="Version B af Valg.dk-prototypen: overskriften Hvordan gik Kommunalvalg 2025 i hele landet?, et søgefelt, mandater og stemmer pr. parti og et kort over Danmark" loading="lazy" width="1400" height="744">
           <span class="proto-cta">Åbn prototypen ↗</span>
         </div>
       </a>
     </div>
 
-    <div class="concept proto reveal" id="lyng">
+    <div class="concept proto reveal" id="procad">
       <div class="concept-side">
         <p class="kicker">Kundeprojekt · Hjemmeside</p>
-        <h3 class="proto-title">Lyng Ventilation: et teknisk produkt, forklaret enkelt</h3>
-        <p class="proto-text">Ny hjemmeside til et ventilationsfirma i Greve. Et animeret snit af huset viser, hvordan anlægget virker, et indeklima-tjek lader de besøgende krydse deres egne problemer af, og AI-chatbotten "Spørg Lyng" er bygget til at svare på kundernes spørgsmål.</p>
+        <h3 class="proto-title">ProCAD: send din fil, få en fast pris</h3>
+        <p class="proto-text">Ny hjemmeside til en CAD-tegner, der laver produktionsklare tegninger til smede og maskinfabrikker. Konkurrenternes sider er lange tekster uden cases og uden mulighed for at sende en fil. ProCAD starter derfor med kundens problem, viser før og efter og lader kunden sende sin skitse fra alle sider. En 3D-model af et bukket emne, man kan dreje, viser faget, før man har læst et ord.</p>
         <dl class="facts">
-          <div><dt>Min rolle</dt><dd>Koncept, UX, design og kode (sammen med Claude)</dd></div>
-          <div><dt>Leveret</dt><dd>Hjemmeside, designsystem og brandmanual</dd></div>
-          <div><dt>Status</dt><dd>Under udvikling</dd></div>
+          <div><dt>Min rolle</dt><dd>Konkurrentanalyse, sitemap, wireframes og design</dd></div>
+          <div><dt>Kode</dt><dd>Astro og Tailwind, skrevet sammen med Claude</dd></div>
+          <div><dt>Leveret</dt><dd>Hjemmeside, designtokens, SEO-plan og lanceringstjekliste</dd></div>
+          <div><dt>Status</dt><dd>Ikke lanceret endnu, venter på ejerens fotos og cases</dd></div>
         </dl>
-        <p class="card-actions"><a class="button small" href="/lyng-ventilation/" target="_blank" rel="noopener">Besøg siden ↗</a></p>
-        <p class="mock-note">Billeder og kundeudtalelser kommer, når firmaet leverer dem.</p>
+        <p class="card-actions"><a class="button small" href="https://sprojekter.github.io/procad.dk/" target="_blank" rel="noopener">Se testversionen ↗</a></p>
+        <p class="mock-note">Fotos er midlertidige, og cases er eksempler, indtil ejeren leverer sine egne.</p>
       </div>
-      <a class="browser proto-shot" href="/lyng-ventilation/" target="_blank" rel="noopener" aria-label="Åbn Lyng Ventilations hjemmeside i en ny fane">
-        <div class="browser-bar"><i></i><i></i><i></i><span>portfolio.sinanp.dk/<b>lyng-ventilation</b></span></div>
+      <a class="browser proto-shot" href="https://sprojekter.github.io/procad.dk/" target="_blank" rel="noopener" aria-label="Åbn testversionen af ProCADs hjemmeside i en ny fane">
+        <div class="browser-bar"><i></i><i></i><i></i><span>sprojekter.github.io/<b>procad.dk</b></span></div>
         <div class="proto-frame">
-          <img src="/work/lyng-ventilation/forside.jpg" alt="Forsiden af Lyng Ventilations hjemmeside: overskriften Frisk luft ind. Varmen bliver. og et animeret snit af et hus" loading="lazy">
-          <span class="proto-cta">Besøg siden ↗</span>
+          <img src="/work/procad/forside.jpg" alt="Forsiden af ProCADs hjemmeside: overskriften Produktionsklare CAD-tegninger til metalbearbejdning og en 3D-model af et bukket metalemne" loading="lazy" width="1400" height="744">
+          <span class="proto-cta">Se testversionen ↗</span>
         </div>
       </a>
     </div>
@@ -114,7 +117,7 @@
   <section class="section more-about">
     <a class="more-about-link reveal" href="/materialer/">
       <span class="eyebrow">Næste · Materialer</span>
-      <b>Plakater, rapporter og slides fra KOMBIT</b>
+      <b>Kampagne, plakater og slides fra KOMBIT</b>
       <span class="arr" aria-hidden="true">→</span>
     </a>
   </section>
@@ -184,7 +187,7 @@
 </div>
 
 <div class="toast" role="status" aria-live="polite"></div>
-<script src="/script.js?v=14" defer></script>
+<script src="/script.js?v=15" defer></script>
 <script src="/dot.js?v=3" defer></script>
 </body>
 </html>
